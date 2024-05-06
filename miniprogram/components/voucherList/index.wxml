@@ -1,0 +1,18 @@
+<!--components/voucherList/index.wxml-->
+<view class="voucher-list-container">
+    <view class="rate-container {{isCanUse ? '' : 'noUse'}}">
+        <text class="rate-text">3.45<text class="sign">%</text></text>
+        <text class="year-rate">年利率</text>
+        <image class="voucher-bg" src="../../images/voucher.png" mode=""/>
+    </view>
+    <view class="voucher-container">
+        <view class="left-voucher">
+            <text class="title">利率优惠券</text>
+            <text class="desc">年利率3.45%优惠券</text>
+            <text class="time">2023.06.01-2023.12.31</text>
+            
+        </view>
+        <image wx:if="{{!isCanUse}}" class="used-voucher" src="../../images/voucher@used.png" mode=""/>
+        <l-icon name="right" size="20" />
+    </view>
+</view>

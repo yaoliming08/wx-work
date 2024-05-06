@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "active-list": "/components/activeList/index"
+  },
+  "navigationBarTitleText": "活动"
+}

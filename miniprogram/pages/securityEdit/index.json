@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "l-list": "/components/list",
+        "l-input": "/components/input",
+        "l-image-picker": "/components/image-picker"
+    },
+    "navigationBarTitleText": "担保"
+  }

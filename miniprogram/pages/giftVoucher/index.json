@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+      "l-tabs": "/components/tabs",
+      "l-tabpanel": "/components/tabpanel",
+      "l-icon": "/components/icon",
+      "voucherList": "/components/voucherList"
+  },
+  "navigationBarTitleText": "礼包券"
+}

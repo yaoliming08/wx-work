@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "l-notice-bar": "/components/notice-bar",
+    "l-capsule-bar": "/components/capsule-bar",
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "l-button": "/components/button/index",
+    "l-dialog": "/components/dialog/index"
+  },
+  "navigationStyle": "custom"
+}

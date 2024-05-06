@@ -1,0 +1,5 @@
+<!--pages/creditSuccess/index.wxml-->
+
+<view class="credit-success-container">
+    成功了
+</view>

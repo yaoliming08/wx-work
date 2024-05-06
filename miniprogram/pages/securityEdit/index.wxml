@@ -1,0 +1,40 @@
+<!--pages/securityEdit/index.wxml-->
+<view class="security-edit-page">
+    <view class="security-content">
+        <view class="title">新增担保人信息</view>
+        <view class="list-wrap">
+            <l-list title="担保人姓名" l-list="list" l-right-class="right-list" >
+                <view slot="right-section" class="right-area">
+                    <input type="text" placeholder="请输入" class="l-input"/>
+                </view>
+            </l-list>
+            <l-list title="身份证号码" l-list="list" l-right-class="right-list" >
+                <view slot="right-section" class="right-area">
+                    <input type="text" placeholder="请输入" class="l-input"/>
+                </view>
+            </l-list>
+            <l-list title="担保人手机号" l-list="list" l-right-class="right-list" >
+                <view slot="right-section" class="right-area">
+                    <input type="text" placeholder="请输入" class="l-input"/>
+                </view>
+            </l-list>
+            <l-list title="与申请人关系" l-list="list" l-right-class="right-list" >
+                <view slot="right-section" class="right-area">
+                    <input type="text" placeholder="请输入" class="l-input"/>
+                </view>
+            </l-list>
+        </view>
+
+    </view>
+
+    <view class="security-content">
+        <view class="title">上传影像-补充结婚说明</view>
+        <view class="upload-image">
+            <l-image-picker count="9" size-type="compressed" urls="{{urls}}" bind:linchange="onChange" />
+            <view class="tip">
+                <text class="mark-red">*</text>
+                提示:支持多张上传，请上传图像大小5MB以内。
+            </view>
+        </view>
+    </view>
+</view>

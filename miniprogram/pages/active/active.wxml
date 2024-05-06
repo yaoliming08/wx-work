@@ -1,0 +1,6 @@
+<!--pages/active/active.wxml-->
+<view class="active-container">
+    <block wx:for="{{activeList}}" wx:key="{{index}}">
+        <active-list activeItem="{{item}}" data-url="{{item.activityPoster}}"  bind:tap="lookActive"/>
+    </block>
+</view>

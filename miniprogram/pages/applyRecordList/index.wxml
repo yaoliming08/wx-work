@@ -1,0 +1,32 @@
+<!--pages/applyRecordList/index.wxml-->
+<view class="apply-record-list">
+    <view class="record-list" wx:for="{{applyList}}" wx:key="{{item.applyId}}" bind:tap="goApplyDetail" data-index="{{index}}">
+        <view class="top-area">
+            <text class="title">{{item.productName || ''}}</text>
+            <l-icon name="right" color="#BBBBBB" size="25" l-class="arrow"/>
+        </view>
+        <view class="record-content">
+            <view class="item">
+                <text class="label">申请状态：</text>
+                <text class="value status">{{item.progressName || ''}}</text>
+            </view>
+            <view class="item">
+                <text class="label">申请时间：</text>
+                <text class="value">{{item.applyTime || ''}}</text>
+            </view>
+            <view class="item">
+                <text class="label">贷款额度：</text>
+                <text class="value">{{item.applyAmount || ''}}元</text>
+            </view>
+            <view class="item">
+                <text class="label">营销人员：</text>
+                <text class="value">{{item.referenceName || ''}}</text>
+                <text class="phone"></text>
+            </view>
+        </view>
+        <view class="btn-lists">
+            <view class="btn" wx:if="{{item.assureStatus !== 6}}" catch:tap="addSecurity" data-id="{{item.applyAssureId}}">{{item.assureStatus == 1 || item.assureStatus == 5 ? '发起担保' : '担保编辑'}}</view>
+            <view class="btn" wx:if="{{item.assureStatus !== 6}}" catch:tap="goSecurityDetail" data-id="{{item.applyAssureId}}">查看担保详情</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "l-dialog": "/components/dialog/index"
+  },
+  "navigationBarTitleText": "待办任务列表"
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+      "l-list": "/components/list/index",
+      "l-popup": "/components/popup/index",
+      "l-button": "/components/button",
+      "l-avatar": "/components/avatar"
+  },
+  "navigationStyle": "custom"
+}

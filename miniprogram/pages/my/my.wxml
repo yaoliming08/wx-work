@@ -1,0 +1,50 @@
+<!--pages/my/my.wxml-->
+<view class="my-container">
+    <view class="my-top-area">
+        <image class="bg" src="/images/my@top.png" mode=""/>
+        <view class="detail">
+            <view class="avatar-wrap">
+                <image src="/images/avatar.png" mode=""/>
+            </view>
+
+            <view class="content" wx:if="{{!isLogin}}">
+                <text class="name">尊敬的客户，您好！</text>
+                <text>登录享金融专属服务</text>
+            </view>
+            <view class="content" wx:if="{{isLogin}}">
+                <text class="name">{{userInfo.name ? userInfo.name : '昵称：微信用户'}}</text>
+                <text>{{userInfo.userPhoneHide}}</text>
+            </view>
+        </view>
+      <button class="login" bind:tap="onLogin" bindgetphonenumber="getRealtimePhoneNumber" open-type="{{isLogin ? '' : 'getPhoneNumber'}}">{{!isLogin ? '登录' : userInfo.realNameFlag === '0' ? '去认证' : '已认证'}}</button>  
+    </view>
+    <view class="record-container">
+        <view class="record-items">
+          <block wx:for="{{recordTabs}}" wx:key="{{index}}">
+            <view class="record" bind:tap="onClickTab" data-index="{{index}}">
+                <image src="{{item.icon}}" mode=""/>
+                <text>{{item.text}}</text>
+            </view>
+          </block>
+        </view>
+    </view>
+    <view class="my-list-container">
+        <block wx:for="{{lists}}" wx:key="{{text}}">
+            <l-list title="{{item.text}}" image="{{item.icon}}" right-desc="{{(index === 0 &&userInfo.realNameFlag === '0') ? '未实名' : ''}}" icon="cart"  l-class="list" data-index="{{index}}" bind:tap="onClickItem"></l-list>
+        </block>
+    </view>
+    <view class="link-me">
+        <text>如有问题，请拨打指定客服电话</text>
+        <view class="phone" bind:tap="onCallPhone">
+            <image src="/images/my/icon-phone.png" mode=""/>
+            <text>0757-960123</text>
+        </view>
+    </view>
+    <l-popup show="{{isShowPopup}}">
+        <view class="popup-u">
+            <text class="title">尊敬的客户</text>
+            <text class="text">您还未完成实名认证哦~</text>
+            <l-button l-class="btn" bind:tap="onRealName">去实名</l-button>
+        </view>
+    </l-popup>
+</view>

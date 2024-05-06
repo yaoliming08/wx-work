@@ -1,0 +1,37 @@
+<!--pages/qualReview/index.wxml-->
+<view class="qual-review-page">
+    <view class="title">身份证信息</view>
+    <view class="list-content">
+        <block wx:for="{{listData}}" wx:key="{{item.label}}">
+            <l-list l-list="list" l-right-class="right-list">
+                <view slot="left-section"><text class="require">*</text>{{item.label}}</view>
+                <view slot="right-section" wx:if="{{item.key}}">{{idCardInfo[item.key] || ''}}</view>
+                <view slot="right-section" wx:if="{{!item.key}}">
+                    <picker mode="selector" bindchange="onPicker" range="{{shipArray}}" range-key="label">
+                        <view class="picker-item">
+                            <text class="text {{applyAssure.applyRelationship !== null ? '' : 'noSelect'}}">{{applyAssure.applyRelationship !== null ? shipArray[applyAssure.applyRelationship].label : '请选择'}}</text>
+                            <l-icon color="#999" name="right" size="20" />
+                        </view>
+                    </picker>
+                </view>
+            </l-list>
+        </block>
+    </view>
+    <view class="title">手机号验证</view>
+    <view class="list-content">
+        <l-list l-list="list" l-right-class="right-list" title="手机号码" right-desc="18656214532" />
+        <l-list l-list="list" l-right-class="right-list" title="验证码" >
+            <view slot="right-section" class="right-area">
+                <input type="text" placeholder="请输入验证码" class="code"/>
+                <view class="send-code {{countNumber ? 'disabled' : ''}}" bind:tap="getSmsCode">{{countNumber ? countNumber + 's' : '发送验证码'}}</view>
+            </view>
+        </l-list>
+    </view>
+    <view class="toggle-protocal">
+        <l-checkbox checked="{{isSelected}}" size="26" bind:tap="onChange" selected-color="blue"></l-checkbox>
+        <view class="protocal-wrap">
+            我已阅读并同意<text class="blue">《信息采集、使用及报送授权书》</text><text class="blue">《人行 征信授权书》</text>
+        </view>
+    </view>
+    <view class="btn" bind:tap="saveInfo">提交</view>
+</view>

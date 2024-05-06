@@ -1,0 +1,6 @@
+<!--pages/agreement/index.wxml-->
+<view class="agreement-container">
+    <block wx:for="{{imageArray}}" wx:key="{{index}}">
+        <image src="{{item}}" mode="widthFix"/>
+    </block>
+</view>

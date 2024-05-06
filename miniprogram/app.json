@@ -1,0 +1,93 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/my/my", 
+    "pages/loanApply/index",
+    "pages/confirmInfo/index",
+    "pages/creditSuccess/index",
+    "pages/transfer/index",
+    "pages/login/index",
+    "pages/qualReview/index",
+    "pages/payment/index",
+    "pages/agreement/index",
+    "pages/serveManager/serveManager",
+    "pages/productDetail/index",
+    "pages/active/active",
+    "pages/creditResult/index",
+    "pages/giftVoucher/index",
+    "pages/securityList/index",
+    "pages/privacyList/index",
+    "pages/applySchedule/index",
+    "pages/creditProcess/index",
+    "pages/personalDetail/index",
+    "pages/applyRecord/index",
+    "mp_ecard_sdk/index/index",
+    "pages/agencyTask/index",
+    "pages/agencyTaskList/index",
+    "pages/applyRecordList/index",
+    "pages/securityDetail/index",
+    "pages/commonQuestion/index",
+    "pages/securityEdit/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "pageOrientation": "portrait"
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "tabBar": {
+    "selectedColor": "#468AEC",
+    "backgroundColor": "#ffffff",
+    "color": "#666666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "/images/tab/home@highlight.png",
+        "iconPath": "/images/tab/home.png"
+      },
+      {
+        "pagePath": "pages/active/active",
+        "text": "活动",
+        "selectedIconPath": "/images/tab/active@highlight.png",
+        "iconPath": "/images/tab/active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "iconPath": "/images/tab/my.png"
+      }
+    ]
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+      "scope.userLocation": {
+          "desc": "获取位置1"
+      },
+      "scope.userFuzzyLocation": {
+          "desc": "获取位置2"
+      }
+  },
+  "requiredPrivateInfos": [
+      "getFuzzyLocation",
+      "choosePoi",
+      "chooseAddress",
+      "chooseLocation"
+  ]
+}

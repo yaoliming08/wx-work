@@ -1,0 +1,167 @@
+/* pages/my/my.wxss */
+page{
+    background-color: #fff;
+}
+.my-container {
+    .my-top-area {
+        position: relative;
+        width: 100%;
+        height: 430rpx;
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .detail {
+            position: absolute;
+            bottom: 134rpx;
+            display: flex;
+            align-items: center;
+            padding: 0 24rpx;
+
+            .avatar-wrap {
+                width: 128rpx;
+                height: 128rpx;
+                margin-right: 16rpx;
+                border: 6rpx solid rgba(255,255,255,0.2);
+                border-radius: 50%;
+                image {
+                    width: 128rpx;
+                    height: 128rpx;
+                }
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                color: #fff;
+                font-size: 26rpx;
+
+                .name {
+                    display: inline-block;
+                    margin-bottom: 10rpx;
+                    font-size: 30rpx;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .login {
+            position: absolute;
+            right: 0;
+            bottom: 170rpx;
+            width: 110rpx;
+            height: 50rpx;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(253deg, #FFBA00, #FF8100);
+            border-radius: 25rpx 0 0 25rpx;
+            color: #fff;
+            line-height: 26rpx;
+            font-size: 26rpx;
+            font-weight: 400;
+            padding: 0 !important;
+
+            &.hide {
+                display: none;
+            }
+        }
+    }
+
+    .record-container {
+        transform: translateY(-50rpx);
+        padding: 0 24rpx;
+
+        .record-items {
+            display: flex;
+            padding: 30rpx 40rpx 40rpx 40rpx;
+            background: #fff;
+            border-radius: 10rpx;
+            box-shadow: 0px 0px 24px 0px rgba(70, 178, 255, 0.41);
+
+            .record {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                font-size: 26rpx;
+                color: #333;
+                font-weight: 400;
+
+                image {
+                    width: 96rpx;
+                    height: 96rpx;
+                    margin-bottom: 12rpx;
+                }
+            }
+        }
+    }
+
+    .my-list-container {
+        padding: 0 30rpx;
+
+        .list {
+            height: 116rpx;
+            border-bottom: 1px solid #EEEEEE !important;
+        }
+    }
+
+    .link-me {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50rpx 0;
+        color: #999;
+        font-size: 24rpx;
+
+        .phone {
+            display: flex;
+            align-items: center;
+            padding: 0 24rpx;
+            margin-top: 20rpx;
+            border: 1px solid #1F55EC;
+            border-radius: 10rpx;
+            font-weight: 600;
+            line-height: 46rpx;
+            color: #1F55EC;
+
+            image {
+                width: 25rpx;
+                height: 25rpx;
+                margin-right: 6rpx;
+            }
+        }
+    }
+    .popup-u{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 500rpx;
+        height: 320rpx;
+        padding-top: 60rpx;
+        background: #fff;
+        border-radius: 10rpx;
+        box-sizing: border-box;
+        .title{
+            margin-bottom: 10rpx;
+            font-size: 36rpx;
+            font-weight: 600;
+        }
+        .text{
+            font-size: 24rpx;
+            color: #666;
+        }
+        .btn{
+            width: 230rpx;
+            height: 70rpx;
+            margin-top: 50rpx;
+            background-color: #1F55EC;
+            border-radius: 40rpx;
+        }
+    }
+}

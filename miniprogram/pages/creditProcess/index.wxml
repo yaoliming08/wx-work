@@ -1,0 +1,5 @@
+<!--pages/creditProcess/index.wxml-->
+<view class="credit-process-container dit-{{currentIndex}}">
+    <image src="{{urlArray[currentIndex]}}?{{Math.random()}}" mode="widthFix"/>
+    <l-button l-class="next-btn" bind:tap="onNext">下一步</l-button>
+</view>

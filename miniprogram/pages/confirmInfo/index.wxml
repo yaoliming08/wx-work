@@ -1,0 +1,17 @@
+<!--pages/confirmInfo/index.wxml-->
+<view class="confirm-info-container">
+    <view class="top-tip">
+        温馨提示：我行从未委托任何公司或个人代理贷款业务
+    </view>
+    <view class="list-container">
+        <l-list title="证件类型" l-class="list" right-desc="身份证" />
+        <l-list title="证件姓名" l-class="list" right-desc="{{idCardInfo.name}}" />
+        <l-list title="性别" l-class="list" right-desc="{{idCardInfo.gender}}" />
+        <l-list title="民族" l-class="list" right-desc="{{idCardInfo.nation}}" />
+        <l-list title="出生日期" l-class="list" right-desc="{{idCardInfo.birth}}" />
+        <l-list title="身份证号" l-class="list" right-desc="{{idCardInfo.idCard}}" />                            
+        <l-list title="证件有限期" l-class="list last" right-desc="{{idCardInfo.validDateStart}}-{{idCardInfo.validDateEnd}}" />                               
+    </view>
+
+    <l-button l-class="confirm-btn" bind:tap="saveInfo">下一步</l-button>
+</view>

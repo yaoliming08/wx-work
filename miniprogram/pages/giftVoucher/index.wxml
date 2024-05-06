@@ -1,0 +1,21 @@
+<!--pages/giftVoucher/index.wxml-->
+<view class="gift-voucher-container">
+    <l-tabs active-key="one" active-color="#1F55EC" l-class-line="active-line">
+        <l-tabpanel tab="可使用" key="one" slot="one">
+            <view class="tab-content">
+                <voucherList isCanUse="{{true}}" />
+                <voucherList isCanUse="{{true}}" />
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="已使用" key="two" slot="two">
+            <view class="tab-content">
+                <voucherList isCanUse="{{false}}" />
+            </view>
+        </l-tabpanel>
+        <l-tabpanel tab="已失效" key="three" slot="three">
+            <view class="tab-content">
+                <voucherList isCanUse="{{false}}"  />
+            </view>
+        </l-tabpanel>
+    </l-tabs>
+</view>

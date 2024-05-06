@@ -1,0 +1,19 @@
+<view class="active-container">
+    <text class="active-title">{{activeItem.activityTitle}}</text>
+    <view class="active-link-content">
+        <image class="active-cover" src="{{activeItem.activityBanner}}?={{Math.random()}}" mode="" />
+        <view class="active-desc">
+            <view class="left-area">
+                <text class="active-text">{{activeItem.activityName}}</text>
+                <text class="active-time">活动时间：<text class="time">{{activeItem.activityStartTime}}-{{activeItem.activityEndTime}}</text>
+                </text>
+            </view>
+            <view class="active-status" bind:tap="onClick">
+                <view wx:if="{{activeItem.activityStatus === 0}}" class="off-line">已下线</view>
+                <view wx:if="{{activeItem.activityStatus === 1}}" class="in-line">进行中</view>
+                <view wx:if="{{activeItem.activityStatus === 2}}" class="once-line">即将上线</view>
+            </view>
+        </view>
+    </view>
+
+</view>

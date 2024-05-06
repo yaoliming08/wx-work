@@ -1,0 +1,4 @@
+<!--pages/transfer/index.wxml-->
+<view class="transfer-page-container">
+    <l-loading show="{{true}}" full-screen="{{true}}" color="#2477EF" type="change" />
+</view>

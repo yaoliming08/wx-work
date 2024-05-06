@@ -1,0 +1,37 @@
+<!--pages/payment/index.wxml-->
+<view class="payment-record-container">
+
+    <!-- <view class="record-lists">
+            <view class="record-header">
+                <text class="name">市民贷</text>
+                <l-icon l-class="icon-right" size="20" name="right" color="#bbb" />
+            </view>
+            <view class="apply-content">
+                <view class="apply-row">
+                    <text>申请时间: </text>
+                    <text>2024-01-25</text>
+                </view>
+                <view class="apply-row">
+                    <text>贷款额度: </text>
+                    <text>300,000</text>
+                </view>
+                <view class="apply-row">
+                    <text>贷款额度: </text>
+                    <text>3.5%</text>
+                </view>
+                <view class="apply-row">
+                    <text>当前已借: </text>
+                    <text>3.5%</text>
+                </view>
+                <view class="apply-row">
+                    <text>当前利息: </text>
+                    <text>1500</text>
+                </view>
+                <view class="apply-row">
+                    <text>当前已还: </text>
+                    <text>100,000</text>
+                </view>
+            </view>
+        </view>  -->
+        <l-empty />
+</view>

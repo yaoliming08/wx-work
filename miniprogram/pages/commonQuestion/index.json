@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "l-list": "/components/list/index"
+  },
+  "navigationBarTitleText": "常见问题"
+}

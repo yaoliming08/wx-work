@@ -1,0 +1,5 @@
+<!--components/empty/index.wxml-->
+<view class="empty-status-container">
+    <image src="https://miniprogram.lixuepeng.cn/images/yhk.png" mode="widthFix" />
+    <text class="text">暂无数据</text>
+</view>

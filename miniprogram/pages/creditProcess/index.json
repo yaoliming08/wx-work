@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "l-button": "/components/button"
+  },
+  "navigationBarTitleText": "实名认证"
+}

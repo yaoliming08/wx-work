@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+      "l-list": "/components/list/index",
+      "l-icon": "/components/icon/index",
+      "l-checkbox": "/components/checkbox/index",
+      "l-button": "/components/button/index"
+  },
+  "navigationBarTitleText": "担保资格审查"
+}

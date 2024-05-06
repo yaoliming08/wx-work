@@ -1,0 +1,22 @@
+<!--pages/personalDetail/index.wxml-->
+<view class="person-container">
+    <view class="person-lists">
+        <view class="list">
+            <text>真实姓名</text>
+            <text>张*</text>
+        </view>
+        <view class="list">
+            <text>手机号码</text>
+            <text>******* 4026</text>
+        </view>
+        <view class="list">                              
+            <text>身份证号码</text>
+            <text>340122********2417</text>
+        </view>
+    </view>
+    <view class="btns">
+        <l-button l-class="p-btn">退出登录</l-button>
+    <l-button l-class="p-btn last">注销用户</l-button>
+    </view>
+    
+</view>

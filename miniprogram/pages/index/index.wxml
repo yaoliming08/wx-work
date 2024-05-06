@@ -1,0 +1,118 @@
+<view class="home-container">
+    <l-capsule-bar hidden-capsule  title="进件" l-title-class="dgdf"/>
+    <l-notice-bar show="{{true}}" l-class="notice"type="still"> 申请某某某银行信贷产品，无需任何中介费</l-notice-bar>
+    <view class="top-area">
+        <image src="/images/top-home-bg.png" mode="widthFix" />
+        <image src="/images/logo/logo@black.png" class="logo" mode="" />
+        <button open-type="share" class="share" bind:tap="onShare">分享</button>
+    </view>
+    <view class="content-container">
+        <view class="tip-area">
+            <image class="icon-horn" src="/images/icon/icon-horn.png" mode="" />
+            <text class="text">申请南海农商银行信贷产品，无需任何中介费</text>
+        </view>
+        <view class="hot-loan-product">
+            <view class="title">热门贷款产品</view>
+            <view class="hot-loan-content">
+                <view class="loan-top-area">
+                    <text class="product-name">市民贷</text>
+                    <view class="more" bind:tap="goProductDetail" catch:tap="goProductDetail">
+                        <text class="" >了解市民贷</text>
+                        <image class="icon-more" src="/images/icon/icon-more.png" mode="" />
+                    </view>
+                </view>
+                <view class="center-content">
+                    <text class="limit-text" >{{loanData.loanAmount ? '可借额度（元）' : '最高可借额度（元）'}}</text>
+                    <text class="loan-money">{{loanData.loanAmount || '1,000,000.00'}}</text>
+                    <text class="loan-rate" wx:if="{{!loanData.loanRate}}">年利率最低至3.45%</text>
+                    <text class="loan-rate" wx:if="{{loanData.loanRate}}">年利率：{{loanData.loanRate}}%</text>
+                    <l-button l-class="btns" bind:tap="onApply">{{loanData.progressName || '申请额度'}}</l-button>
+                </view>
+                <view class="loan-items">
+                    <view class="item">
+                        <text class="item-text">额度高</text>
+                        <view class="item-rows">
+                            <text>最高</text>
+                            <text class="blue">30万元</text>
+                        </view>
+                    </view>
+                    <view class="item">
+                        <text class="item-text">审批快</text>
+                        <view class="item-rows">
+                            <text>最快</text>
+                            <text class="blue">2分钟</text>
+                            <text>出额度</text>
+                        </view>
+                    </view>
+                    <view class="item">
+                        <text class="item-text">自助办</text>
+                        <view class="item-rows">
+                            <text class="blue">0</text>
+                            <text>材料，</text>
+                            <text class="blue">0</text>
+                            <text>跑腿，</text>
+                            <text class="blue">0</text>
+                            <text>抵押</text>
+                        </view>
+                    </view>
+
+                    <view class="item">
+                        <text class="item-text">更安全</text>
+                        <view class="item-rows">
+                            <text class="blue">正规银行机构，</text>
+                            <text>有保障</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="task-content">
+            <view class="left">
+                <text>滴滴!您有一个担保待办任务!</text>
+            </view>
+            <view class="right">点击查看</view>
+        </view>
+        <view class="selected-product">
+            <view class="title">精选产品</view>
+            <view class="soon-loan">
+                <view class="product-name">
+                    <text class="">优才快贷</text>
+                    <text class="find-text">了解优才快贷</text>
+                    <image src="" mode="" />
+                </view>
+                <view class="limit-money">
+                    <text class="limit-text">最高可借额度（元）</text>
+                    <view class="apply-money">
+                        <text class="money">1,000,000.00</text>
+                        <l-button l-class="register" >注册申请</l-button>
+                    </view>
+                </view>
+            </view>
+            <view class="loan-business-items">
+                <view class="bus-item">
+                    <text class="title">业主快贷</text>
+                    <view class="limit-money">
+                        <text>最高可借额度（元）</text>
+                        <text class="money">300,000.00</text>
+                    </view>
+                    <l-button plain="{{true}}" l-class="btn">注册申请</l-button>
+                </view>
+                <view class="bus-item">
+                    <text class="title">业主快贷</text>
+                    <view class="limit-money">
+                        <text>最高可借额度（元）</text>
+                        <text class="money">300,000.00</text>
+                    </view>
+                    <l-button plain="{{true}}" l-class="btn">注册申请</l-button>
+                </view>
+            </view>
+            <view class="service-wrap">
+                <text>本服务由南海农商银行提供 </text>
+                <text bind:tap="onCallPhone">客服电话:0757-960123</text>
+            </view>
+        </view>
+    </view>
+    <l-dialog show="{{isShow}}" type="confirm" show-title="{{false}}" confirm-text="同意" cancel-text="拒绝" bind:linconfirm="onConfirm" bind:lincancel="onCancel">
+        <view class="dialog-content">感谢您使用南海农商银行移动展业小程序和服务，为了更好地保护您的权益和提供优质的服务，我们有必要将按照国家相关规定采集和使用个人信息，请您在点击“同意”之前仔细阅读<text class="dialog-link" bind:tap="onLink">《南海农商银行移动展业个人信息保护政策》</text>，您点击“同意”后及视为您接受本<text class="dialog-link" bind:tap="onLink">《南海农商银行移动展业个人信息保护政策》</text>，我行将按照相关法律法规及本政策来合法使用和保护您的个人信息。</view>
+    </l-dialog>
+</view>

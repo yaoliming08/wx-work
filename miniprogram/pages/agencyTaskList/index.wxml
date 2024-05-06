@@ -1,0 +1,40 @@
+<!--pages/agencyTaskList/index.wxml-->
+<view class="agency-task-list">
+    <view class="title">
+        担保资格审查任务清单
+    </view>
+    <view class="list-content">
+        <view class="list" wx:for="{{assureTasks}}" wx:key="{{item.applyAssureId}}">
+            <view class="left">
+                <view class="item">
+                    <text class="label">姓名: </text>
+                    <text class="value">{{item.applyName}}</text>
+                </view>
+                <view class="item">
+                    <text class="label">手机尾号:</text>
+                    <text class="value">{{item.applyPhone}}</text>
+                </view>
+            </view>
+            <view class="right">
+                <view class="btn reject" bind:tap="onAgreeClick" data-index="{{index}}" data-text="REJECT">拒绝</view>
+                <view class="btn handle" bind:tap="onAgreeClick" data-index="{{index}}" data-text="AGREE">点击办理</view>
+            </view>
+        </view>
+    </view>
+    <l-dialog show="{{showDialog}}" type="confirm" title="请核对借款人申请信息"confirm-text="同意" confirm-color="#1F55EC" cancel-text="取消" cancel-color="#333" l-content-class="content-wrap" bind:linconfirm="goReview">
+        <view class="dialog-content" wx:if="{{contentStr === 'REJECT'}}">
+            <view class="text">问您确定拒绝为{{assureTasks[currentIndex].applyName}}担保吗？</view>
+            <view>点击【确认】按钮即为确认拒绝。</view>
+        </view>
+        <view class="dialog-content" wx:if="{{contentStr === 'AGREE'}}">
+            <view class="item">
+                <text>申请人姓名：</text>
+                <text class="value">{{assureTasks[currentIndex].applyName}}</text>
+            </view>
+            <view class="item">
+                <text>申请人证件号：</text>
+                <text class="value">{{assureTasks[currentIndex].applyIdCard}}</text>
+            </view>
+        </view>
+    </l-dialog>
+</view>

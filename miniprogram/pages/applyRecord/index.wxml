@@ -1,0 +1,26 @@
+<!--pages/applyRecord/index.wxml-->
+<view class="apply-record-container">
+    <block wx:for="{{applyList}}" wx:key="{{index}}">
+        <view class="record-lists" data-id="{{item.applyId}}" bind:tap="getApplyDetail">
+            <view class="record-header">
+                <text class="name">{{item.productName}}</text>
+                <l-icon l-class="icon-right" size="20" name="right" color="#bbb" />
+            </view>
+            <view class="apply-content">
+                <view class="apply-row">
+                    <text>申请状态: </text>
+                    <text class="fail">{{ApplyStatusTexts[item.applyStatus]}}</text>
+                </view>
+                <view class="apply-row">
+                    <text>申请时间: </text>
+                    <text>{{item.applyTime}}</text>
+                </view>
+                <view class="apply-row">
+                    <text>贷款额度: </text>
+                    <text>{{item.applyAmount}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    <l-empty wx:if="{{!applyList.length}}"/>
+</view>

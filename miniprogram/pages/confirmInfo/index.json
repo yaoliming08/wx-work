@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "l-list": "/components/list/index",
+      "l-button": "/components/button/index"
+  },
+  "navigationBarTitleText": "身份确认"
+}

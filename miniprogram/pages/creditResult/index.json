@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "l-button": "/components/button/index"
+  },
+  "navigationBarTitleText": "市民贷"
+}

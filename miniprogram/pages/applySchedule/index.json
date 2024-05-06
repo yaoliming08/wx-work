@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "l-steps": "/components/steps/index",
+      "l-step": "/components/step/index"
+  },
+  "navigationBarTitleText": "申请记录"
+}

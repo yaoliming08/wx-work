@@ -1,0 +1,57 @@
+/* pages/applyRecordList/index.wxss */
+.apply-record-list{
+    padding: 10rpx 24rpx;
+    .record-list{
+        padding: 30rpx;
+        margin-bottom: 20rpx;
+        border-radius: 10rpx;
+        background: #fff;
+        .top-area{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40rpx;
+            .title{
+                color: #333;
+                line-height: 30rpx;
+                font-size: 30rpx;
+            }
+            .arrow{
+                font-weight: bold;
+            }
+        }
+        .record-content{
+            font-size: 26rpx;
+            color: #666;
+            .item{
+                margin-bottom: 20rpx;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                .value{
+                    color: #333;
+                    &.status{
+                        color: #0088FB;
+                    }
+                }
+            }
+        }
+        .btn-lists{
+            display: flex;
+            justify-content: flex-end;
+            .btn{
+                padding: 0 30rpx;
+                line-height: 54rpx;
+                margin-left: 10rpx;
+                height: 54rpx;
+                background-color: #1F55EC;
+                color: #fff;
+                font-size: 26rpx;
+                border-radius: 50rpx;
+                &.disabled{
+                    background-color: #C4C4C4;
+                }
+            }
+        }
+    }
+}

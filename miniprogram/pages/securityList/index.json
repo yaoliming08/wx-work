@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "l-list": "/components/list"
+  },
+  "navigationBarTitleText": "担保记录"
+}

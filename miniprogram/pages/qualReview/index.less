@@ -1,0 +1,81 @@
+/* pages/qualReview/index.wxss */
+.qual-review-page{
+    padding-top: 43rpx;
+    .title{
+        padding: 0 24rpx;
+        margin-bottom: 20rpx;
+        font-weight: 500;
+        font-size: 30rpx;
+        color: #333;
+    }
+    .list-content{
+        padding: 0 20rpx;
+        margin-bottom: 40rpx;
+        background: #fff;
+        .list{
+            height: 110rpx; 
+        }
+        .right-list{
+            .l-icon{
+                display: none;
+            }
+        }
+        .require{
+            color: red;
+        }
+        .noSelect {
+            color: #999;
+        }
+        .right-area{
+            display: flex;
+            align-items: center;
+            input {
+                padding: 5rpx 0;
+                text-align: center;
+                width: 225rpx;
+                height: 60rpx;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            .send-code {
+                line-height: 60rpx;
+                text-align: center;
+                width: 150rpx;
+                margin-left: 10rpx;
+                height: 60rpx;
+                background: #DAE4FF;
+                border-radius: 5px;
+                font-size: 26rpx;
+                color: #1F55EC;
+
+                &.disabled {
+                    background: #EBEBEB;
+                    color: #999;
+                }
+            }
+        }
+    }
+    .toggle-protocal{
+        display: flex;
+        align-items: flex-start;
+        padding: 0 36rpx;
+        margin-top: -20rpx;
+        .protocal-wrap{
+            font-size: 26rpx;
+            color: #666;
+            .blue{
+                color: #1F55EC;
+            }
+        }
+    }
+    .btn{
+        margin: 50rpx auto;
+        width: 600rpx;
+        line-height: 80rpx;
+        height: 80rpx;
+        border-radius: 40rpx;
+        background-color: #1F55EC;
+        color: #fff;
+        text-align: center;
+    }
+}

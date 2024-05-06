@@ -1,0 +1,6 @@
+<!--pages/securityList/index.wxml-->
+<view class="security-list-container">
+    <l-list title="协同担保"/>
+    <l-list title="我的担保"/>
+    <l-list l-class="last-list" title="历史担保记录"/>
+</view>

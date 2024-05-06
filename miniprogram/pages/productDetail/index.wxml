@@ -1,0 +1,5 @@
+<!--pages/productDetail/index.wxml-->
+<view class="product-detail-container">
+    <image src="{{imgUrl}}" mode="widthFix"/>
+    <button class="btn" open-type="share" bind:tap="onShare">立即分享</button>
+</view>

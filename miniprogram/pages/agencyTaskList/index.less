@@ -1,0 +1,89 @@
+/* pages/agencyTaskList/index.wxss */
+.agency-task-list{
+    padding: 10rpx 26rpx;
+    .title{
+        line-height: 70rpx;
+        color: #000;
+        font-weight: 500;
+    }
+    .list-content{
+        .list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 46rpx 30rpx;
+            margin-bottom: 20rpx;
+            border-radius: 10rpx;
+            background: #fff;
+            .left{
+                display: flex;
+                flex-direction: column;
+                .item{
+                    margin-bottom: 30rpx;
+                    font-size: 26rpx;
+                    .label{
+                        color: #666;
+                    }
+                    .value{
+                        color: #333;
+                    }
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .right{
+                display: flex;
+                .btn{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 160rpx;
+                    height: 54rpx;
+                    margin-left: 10rpx;
+                    font-size: 26rpx;
+                    border-radius: 30rpx;
+                    line-height: 26rpx;
+                    &.reject{
+                        background: #FFE2E2;
+                        border: 1rpx solid #F98585;
+                        color: #CD0101;
+                    }
+                    &.handle{
+                        background: #1F55EC;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .content-wrap{
+        padding: 0;
+    }
+    .dialog-content{
+        padding: 20rpx 30rpx 30rpx 30rpx;
+        text-align: center;
+        background: #fff;
+        width: 100%;
+        color: #999;
+        box-sizing: border-box;
+        .item{
+            display: flex;
+            align-items: center;
+            padding: 0 20rpx;
+            height: 73rpx;
+            margin-bottom: 20rpx;
+            box-sizing: border-box;
+            background: #F1F1F1;
+            font-size: 26rpx;
+            color: #999999;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .value{
+                color: #333333;
+            }
+            
+        }
+    }
+}

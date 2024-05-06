@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+      "l-steps": "/components/steps/index",
+      "l-step": "/components/step/index",
+      "l-list": "/components/list/index",
+      "l-input": "/components/input/index",
+      "l-form-item": "/components/form-item/index",
+      "l-icon": "/components/icon/index",
+      "l-button": "/components/button/index",
+      "l-popup": "/components/popup",
+      "l-notice-bar": "/components/notice-bar"
+  },
+  "navigationBarTitleText": "贷款申请"
+}

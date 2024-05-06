@@ -1,0 +1,10 @@
+<!--pages/creditResult/index.wxml-->
+<view class="credit-result-container">
+    <view class="credit-content">
+        <image class="result-image" src="/images/icon/icon-success.png" mode=""/>
+        <text class="success-text">申请成功</text>
+        <text class="desc">请等待1-3分钟系统审核，结果将以短信形式发送至手机，请注意查收</text>
+    </view>
+
+    <l-button l-class="apply-btn" bind:tap="onBackHome">返回首页</l-button>
+</view>

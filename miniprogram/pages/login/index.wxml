@@ -1,0 +1,14 @@
+<!--pages/login/index.wxml-->
+<view class="login-page">
+    <view class="bank-info">
+        <image class="logo" src="" mode=""/>
+        <text class="name">某某某银行</text>
+    </view>
+    <view class="welcome">
+        <text class="welcome-text">欢迎你!</text>
+        <text class="text">来到某某银行进件小程序</text>
+    </view>
+    <view class="image-wrap">
+    </view>
+    <l-button bindgetphonenumber="getRealtimePhoneNumber" open-type="getPhoneNumber" l-class="btns">登录</l-button>
+</view>

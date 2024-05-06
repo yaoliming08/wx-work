@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+      "l-capsule-bar": "/components/capsule-bar",
+      "l-avatar": "/components/avatar",
+      "l-list": "/components/list",
+      "navigation-bar": "/components/navigation-bar/navigation-bar",
+      "l-icon": "/components/icon"
+  },
+  "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#fff"
+}
