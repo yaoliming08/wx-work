@@ -1,39 +1,23 @@
 <!--pages/applySchedule/index.wxml-->
 <view class="schedule-container">
     <view class="schedule-panel">
-        <view class="name">{{productData.productName || ''}}</view>
+        <view class="name">{{productData.productName || '市民贷'}}</view>
         <view class="limit-wrap">
             <text>审批额度: </text>
-            <text class="money">{{productData.loanAmount}}</text>
-            <text wx:if="{{productData.loanRate}}">利率：{{applyDetail.loanRate}}%</text>
+            <text class="money">{{productData.loanAmount || '--'}}</text>
+            <text>利率：{{productData.loanRate || '--'}}%</text>
         </view>
     </view>
     <view class="steps-container">
         <l-steps direction="column" active-index="{{applyDetail.length - 1}}">
             <block wx:for="{{applyDetail}}" wx:key="{{applyDetail.createTime}}">
-                <l-step title="{{item.options}}">
+                <l-step title="{{item.progressName}}">
                     <view slot="describe" class="describe-container">
-                        <text class="time">{{applyDetail.createTime}}</text>
+                    <text class="time">{{item.createTime}}</text>
                     </view>
                 </l-step>
             </block>
 
-            <!-- <l-step title="审批中">
-                <view slot="describe" class="describe-container">
-                    <text class="desc">恭喜!您已成功提交申请</text>
-                    <text class="time">{{applyDetail.applyTime}}</text>
-                </view>
-            </l-step>
-            <l-step wx:if="{{applyDetail.applyStatus !== 1}}" title="{{applyDetail.applyStatus === 7 ? '审批不通过' : '审批通过，请下载南海农商银行APP'}} ">
-                <view slot="describe" class="describe-container">
-                    <text class="time">{{applyDetail.approveTime || ''}}</text>
-                </view>
-            </l-step>
-            <l-step title="签署合同并确认放款" wx:if="{{applyDetail.applyStatus !== 1 && applyDetail.applyStatus !== 7}}">
-                <view slot="describe" class="describe-container">
-                    <text class="time">2019-03-20 10:22:12</text> -->
-            <!-- </view> -->
-            <!-- </l-step> -->
         </l-steps>
     </view>
 </view>

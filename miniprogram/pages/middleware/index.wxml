@@ -1,0 +1,4 @@
+<!--pages/middleware/index.wxml-->
+<view class="middleware-page-container">
+    <l-loading show="{{true}}" full-screen="{{true}}" color="#2477EF" type="change" />
+</view>

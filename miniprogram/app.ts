@@ -4,6 +4,7 @@ import { initEid } from './mp_ecard_sdk/main';
 
 App<IAppOption>({
     globalData: {
+        applyAssure: null
     },
     onLaunch(options) {
         initEid();

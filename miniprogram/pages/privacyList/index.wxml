@@ -1,5 +1,2 @@
 <!--pages/privacyList/index.wxml-->
-<view class="privacy-list-container">
-    <l-list title="隐私政策"/>
-    <l-list title="个人信息接收清单" />
-</view>
+<text>pages/privacyList/index.wxml</text>

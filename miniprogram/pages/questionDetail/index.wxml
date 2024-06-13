@@ -1,0 +1,23 @@
+<view class="question-detail-page">
+    <view class="question-panel">
+        <view class="content">
+            <view class="title">问题：</view>
+            <text class="text">{{question.question}}</text>
+        </view>
+        <view class="content">
+            <view class="title">回答：</view>
+            <text class="text">{{question.answer}}</text>
+        </view>
+        <view class="bottom-area">
+            <view>以上信息是否对您有帮助？</view>
+            <view class="btns">
+                <view class="btn {{clickText === 'resolved' ? 'active' : ''}}" bind:tap="handleQuestion" data-key="resolved">已解决</view>
+                <view class="btn {{clickText === 'unresolved' ? 'active' : ''}}" bind:tap="handleQuestion" data-key="unresolved">未解决</view>
+            </view>
+        </view>
+    </view>
+    <view class="tip">
+        <view class="text">如有问题，请拨打指定客服电话</view>
+        <view class="phone" bind:tap="onCallPhone">10086</view>
+    </view>
+</view>

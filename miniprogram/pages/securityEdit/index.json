@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "l-list": "/components/list",
+        "l-icon": "/components/icon/index",
         "l-input": "/components/input",
         "l-image-picker": "/components/image-picker"
     },

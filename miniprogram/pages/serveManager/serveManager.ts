@@ -65,5 +65,5 @@ Page({
   },
   onBack() {
       wx.navigateBack()
-  }
+  },
 })

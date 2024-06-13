@@ -1,0 +1,25 @@
+<!--pages/assureResult/index.wxml-->
+<page-container show="{{show}}" position="center" bind:beforeleave="onLeave">
+    
+    <view class="container">
+        <!-- <navigation-bar title="担保审查" color="#000" back="{{isShowLeft}}">
+            <view slot="left" class="left-icon" bind:tap="goTask">
+                <l-icon l-class='iconfont' name="left" size="32" color="#333" />
+            </view>
+        </navigation-bar> -->
+        <view class="security-result">
+            <l-loading wx:if="{{result  === null}}" show="{{true}}" full-screen="{{true}}" color="#2477EF" type="change" />
+            <view class="security-content" wx:if="{{result  === 1}}">
+                <image class="image" src="{{iconSuccess}}" mode="" />
+                <text class="text">已成功提交担保资格审查</text>
+            </view>
+
+            <view class="security-content" wx:if="{{result  === 2}}">
+                <image class="image" src="/images/icon/icon-fail.png" mode="" />
+                <text class="text">担保资格审查失败</text>
+            </view>
+            <view wx:if="{{result !== null}}" class="btn" bind:tap="goHome"> 返回首页</view>
+        </view>
+       
+    </view>
+</page-container>

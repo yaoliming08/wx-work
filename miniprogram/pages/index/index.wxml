@@ -1,32 +1,46 @@
+<wxs src="../../utils/common.wxs" module="StatusModule"></wxs>
+
 <view class="home-container">
-    <l-capsule-bar hidden-capsule  title="进件" l-title-class="dgdf"/>
-    <l-notice-bar show="{{true}}" l-class="notice"type="still"> 申请某某某银行信贷产品，无需任何中介费</l-notice-bar>
+    <l-capsule-bar hidden-capsule title="进件" l-title-class="dgdf" />
+    <l-notice-bar show="{{true}}" l-class="notice" type="still"> 申请某某某银行信贷产品，无需任何中介费</l-notice-bar>
     <view class="top-area">
-        <image src="/images/top-home-bg.png" mode="widthFix" />
-        <image src="/images/logo/logo@black.png" class="logo" mode="" />
-        <button open-type="share" class="share" bind:tap="onShare">分享</button>
+        <image src="{{bannerList[0].materialBanner || ''}}" mode="widthFix" />
     </view>
     <view class="content-container">
         <view class="tip-area">
             <image class="icon-horn" src="/images/icon/icon-horn.png" mode="" />
-            <text class="text">申请南海农商银行信贷产品，无需任何中介费</text>
+            <text class="text">申请xxxx银行信贷产品，无需任何中介费</text>
         </view>
         <view class="hot-loan-product">
             <view class="title">热门贷款产品</view>
             <view class="hot-loan-content">
                 <view class="loan-top-area">
-                    <text class="product-name">市民贷</text>
+                    <text class="product-name">{{prodList[0].name}}</text>
                     <view class="more" bind:tap="goProductDetail" catch:tap="goProductDetail">
-                        <text class="" >了解市民贷</text>
+                        <text class="">了解{{prodList[0].name}}</text>
                         <image class="icon-more" src="/images/icon/icon-more.png" mode="" />
                     </view>
                 </view>
                 <view class="center-content">
-                    <text class="limit-text" >{{loanData.loanAmount ? '可借额度（元）' : '最高可借额度（元）'}}</text>
-                    <text class="loan-money">{{loanData.loanAmount || '1,000,000.00'}}</text>
-                    <text class="loan-rate" wx:if="{{!loanData.loanRate}}">年利率最低至3.45%</text>
+                    <text class="limit-text">{{loanData.loanAmount ? '可借额度（元）' : '最高可借额度（元）'}}</text>
+                    <text class="loan-money">{{loanData.loanAmount || prodList[0].amountMax * 10000}}</text>
+                    <text class="loan-rate" wx:if="{{!loanData.loanRate}}">年利率最低至{{prodList[0].rateMin}}%</text>
                     <text class="loan-rate" wx:if="{{loanData.loanRate}}">年利率：{{loanData.loanRate}}%</text>
-                    <l-button l-class="btns" bind:tap="onApply">{{loanData.progressName || '申请额度'}}</l-button>
+                    <l-button l-class="btns" bind:tap="onApply">{{loanData.progressName ? '点击查看进度' : '申请额度'}}</l-button>
+                </view>
+                <view class="status-show" wx:if="{{loanData.progressName || loanData.assureStatus}}">
+                    <view class="status-item" wx:if="{{loanData.progressName && !loanData.nextApplyTime}}">
+                        <text class="label">申请进度：</text>
+                        <text class="value">{{loanData.progressName}}</text>
+                    </view>
+                    <view class="status-item" wx:if="{{loanData.nextApplyTime}}">
+                        <text class="label">申请进度：</text>
+                        <text class="value">抱歉，您不符合申请条件，在{{loanData.nextApplyTime}}后可重新申请</text>
+                    </view>
+                    <!-- <view class="status-item" wx:if="{{loanData.assureStatus}}">
+                        <text class="label">担保进度：</text>
+                        <text class="value">{{StatusModule.getStatusText(loanData.assureStatus)}}</text>
+                    </view> -->
                 </view>
                 <view class="loan-items">
                     <view class="item">
@@ -66,13 +80,7 @@
                 </view>
             </view>
         </view>
-        <view class="task-content">
-            <view class="left">
-                <text>滴滴!您有一个担保待办任务!</text>
-            </view>
-            <view class="right">点击查看</view>
-        </view>
-        <view class="selected-product">
+        <view class="selected-product" wx:if="{{prodList.length > 1}}">
             <view class="title">精选产品</view>
             <view class="soon-loan">
                 <view class="product-name">
@@ -84,7 +92,7 @@
                     <text class="limit-text">最高可借额度（元）</text>
                     <view class="apply-money">
                         <text class="money">1,000,000.00</text>
-                        <l-button l-class="register" >注册申请</l-button>
+                        <l-button l-class="register">注册申请</l-button>
                     </view>
                 </view>
             </view>
@@ -106,13 +114,54 @@
                     <l-button plain="{{true}}" l-class="btn">注册申请</l-button>
                 </view>
             </view>
-            <view class="service-wrap">
-                <text>本服务由南海农商银行提供 </text>
-                <text bind:tap="onCallPhone">客服电话:0757-960123</text>
+
+        </view>
+        <view class="introduction-content" style="background: {{introductionBg}}">
+            <image src="/images/Introduction-bg.png" mode="" class="bg" />
+            <view class="title">攻略</view>
+            <view class="intro-items">
+                <image src="/images/introd-1.png" mode="" />
+                <image src="/images/introd-2.png" mode="" />
             </view>
         </view>
+        <view class="vig-items">
+            <image class="vig-1" src="/images/vig-item.png" mode="" />
+            <image class="vig-2" src="/images/approve-item.png" mode="" />
+        </view>
+        <view class="service-wrap">
+            <text>本服务由xxxx银行提供 </text>
+            <text bind:tap="onCallPhone">客服电话: xxxx</text>
+        </view>
     </view>
-    <l-dialog show="{{isShow}}" type="confirm" show-title="{{false}}" confirm-text="同意" cancel-text="拒绝" bind:linconfirm="onConfirm" bind:lincancel="onCancel">
-        <view class="dialog-content">感谢您使用南海农商银行移动展业小程序和服务，为了更好地保护您的权益和提供优质的服务，我们有必要将按照国家相关规定采集和使用个人信息，请您在点击“同意”之前仔细阅读<text class="dialog-link" bind:tap="onLink">《南海农商银行移动展业个人信息保护政策》</text>，您点击“同意”后及视为您接受本<text class="dialog-link" bind:tap="onLink">《南海农商银行移动展业个人信息保护政策》</text>，我行将按照相关法律法规及本政策来合法使用和保护您的个人信息。</view>
+    <l-dialog show="{{isShow}}" l-cancel-class="cancel-text" l-confirm-class="{{confirmText > 0 ? 'rrrrr' : 'dddd'}}"  type="confirm" title="银行告知书"  confirm-text="{{CountTime.getTimeText(confirmText)}}" cancel-text="拒绝" bind:linconfirm="onConfirm" bind:lincancel="onCancel">
+        <view class="dialog-content">
+            <view class="guset">尊敬的客户：</view>
+            <view class="tip">不要给钱中介，中介无法改变审批结果！</view>
+            <view class="content">
+                <text> XX银行未跟任何第三方中介及融资机构进行线下合作，未曾授权任何第三方机构向客户授权任何形式的费用。</text>
+                <text>以上内容我行有权依法进行解释，详询0757-34545</text>
+            </view>
+        </view>
     </l-dialog>
 </view>
+
+<wxs module="CountTime">
+    var getTimeText = function(count){
+        return count > 0 ? "我已知悉并同意（"+ count +"s）" : '同意' ;
+    }
+
+    module.exports = {
+        getTimeText: getTimeText
+    }
+</wxs>
+
+<wxs module="DistanceModule">
+    var handleDistance = function(distance) {
+        if (!distance) return '';
+        return Number(distance).toFixed(2) + 'km';
+    }
+
+    module.exports = {
+        handleDistance: handleDistance
+    }
+</wxs>

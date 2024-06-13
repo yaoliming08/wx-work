@@ -1,5 +1,6 @@
 // pages/qualReview/index.ts
-import { getAuthResult, editOrUpdate,  getInfoById } from "../../services/api";
+import { getAuthResult, getUserInfo, editOrUpdate, getInfoById, beforeAssureCheck } from "../../services/api";
+
 Page({
 
     /**
@@ -17,7 +18,7 @@ Page({
             },
             {
                 label: '出生日期',
-                key: 'birth',
+                key: 'birthday',
             },
             {
                 label: '身份证号',
@@ -31,49 +32,40 @@ Page({
         ],
         countNumber: 0,
         isSelected: false,
-        shipArray: [{
-            label: '户主',
-            id: 1
-        }, {
-            label: '配偶',
-            id: 2
-        }, {
-            label: '非家庭成员',
-            id: 3
-        }],
         idCardInfo: {},
-        applyAssure: {},
-        fileUrls: [],
-        checkData: {applyAssure: { assurePhone: '18234345345' }},
-        path: ''
+        smsCode: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
-        const { bizToken, path } = options;
-        getAuthResult({ seqNo: '', bizToken }, {
+        const { applyAssureId, isAgree, applyRelationship } = options;
+        if (isAgree === '1') {
+            this.setData({
+                isSelected: true
+            })
+        };
+        getUserInfo({}, {
             success: (result: any) => {
-                const { idCardInfo } = result;
+                const { userInfo } = result;
                 this.setData({
-                    idCardInfo,
-                    path
+                    idCardInfo: { ...userInfo, applyAssureId, applyRelationship }
                 })
             }
-
         })
     },
-    onPicker(event) {
-        const { value } = event.detail ?? {};
-        if (value === undefined || value === null) return;
-        const {id, label} = this.data.shipArray[value];
-        this.setData({
-            applyAssure: {...this.data.applyAssure, applyRelationship: id, label}
-
-        })
-    },
+    // onPicker(event) {
+    //     const { value } = event.detail ?? {};
+    //     if (value === undefined || value === null) return;
+    //     const { id, label } = this.data.shipArray[value];
+    //     this.setData({
+    //         idCardInfo: {
+    //             ...this.data.idCardInfo,
+    //             applyRelationship: label
+    //         }
+    //     });
+    // },
 
     setCountTime() {
         let count = 60;
@@ -88,21 +80,54 @@ Page({
     getSmsCode() {
         this.setCountTime();
     },
-    onChange() {
+    onInput(event) {
+        const { value } = event.detail;
         this.setData({
-            isSelected: !this.data.isSelected
+            smsCode: value.trim()
+        })
+    },
+    goProDetail() {
+        const { applyAssureId, applyRelationship } = this.data.idCardInfo;
+        wx.navigateTo({
+            url: `/pages/qualProtocal/index?applyAssureId=${applyAssureId}&applyRelationship=${applyRelationship}`
         })
     },
     saveInfo() {
-        if (!this.data.isSelected){
-            wx.showToast({title: '请勾选协议'});
+        const { name, idCard, applyRelationship, applyAssureId } = this.data.idCardInfo ?? {};
+
+        if (!applyRelationship) {
+            wx.showToast({ title: '请选择借款人关系' });
             return;
         }
-        const data = {applyAssure: this.data.applyAssure, fileUrls: this.data.fileUrls}
-        editOrUpdate({ ...this.data.checkData }, {
+        if (!this.data.smsCode) {
+            wx.showToast({ title: '请输入验证码' });
+            return;
+        }
+        if (!this.data.isSelected) {
+            wx.showToast({ title: '请勾选协议' });
+            return;
+        }
+        
+        beforeAssureCheck({
+            applyAssureId,
+            name,
+            idCard,
+            smsCode: this.data.smsCode
+        }, {
             success: (result) => {
-                console.log(result)
+                const { authToken } = result;
+                wx.navigateTo({
+                    url: `/pages/transfer/index?authToken=${authToken}&applyAssureId=${applyAssureId || ''}&type=ASSURE`
+                })
             }
         })
+    },
+    onToggle() {
+        if(!this.data.isSelected){
+            wx.showToast({
+                title: '请点击并阅读授权书',
+                icon: 'none'
+            })
+        }
     }
 })

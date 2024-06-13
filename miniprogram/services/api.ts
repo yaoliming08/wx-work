@@ -4,6 +4,7 @@ import { postRequest, getRequest } from "./services";
 export const authLogin = (data: any, options: RequestOption = {}) => {
     const { jscode = '', code = '' } = data;
     const params = {
+        ...data,
         jsCode: jscode,
         code
     }
@@ -57,12 +58,12 @@ export const getActivityList = (data: any, options: RequestOption = {}) => {
 
 // 个人中心
 export const getUserInfo = (data: any, options: RequestOption = {}) => {
-    return postRequest(`apminipg/wxminipg/queryUserInfo`, data, { IG_TOKEN: true, ...options });
+    return postRequest(`apminipg/wxminipg/queryUserInfo`, data, options);
 }
 
 // 宣传图
 export const getMarketDetail = (data: any, options: RequestOption = {}) => {
-    return postRequest(`apminipg/marketMaterial/getDsegMarketMateriallist`, data, options)
+    return postRequest(`apminipg/marketMaterial/getDsegMarketMateriallist`, data, {IG_TOKEN: true, ...options})
 }
 
 // 申请列表
@@ -93,10 +94,98 @@ export const getInfoById = (data: any, options: RequestOption = {}) => {
     return getRequest(`/apminipg/assure/getInfoById`, data, options)
 }
 
+export const getAssureHistory = (data: any, options: RequestOption = {}) => {
+    return getRequest(`/apminipg/assure/history`, data, options)
+}
+
 // 上传图片
 export const upLoadImage = (data: any, options: RequestOption = {}) => {
     return postRequest(`/apminipg/fileUpload/upload`, data, options)
 }
+
+// 问题列表
+export const getQuestionList = (data: any, options: RequestOption = {}) => {
+    return getRequest(`/apminipg/question/list`, data, options)
+}
+
+// 问题详情
+export const getQuestionDetail = (data: any, options: RequestOption = {}) => {
+    return getRequest(`/apminipg/question/getInfo`, data, options)
+}
+
+// 问题反馈
+export const behaviorLog = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/behaviorLog/add`, data, options);
+}
+// 担保信息
+export const getInvestList = (data: any, options: RequestOption = {}) => {
+    return getRequest(`/apminipg/wxminipg/getInvestigateList`, data, options)
+}
+
+// 担保检查
+export const beforeAssureCheck = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/assure/preCommitCheck`, data, options)
+}
+
+//信息确认
+export const beforeCheckApplyInfo = (data: any,  options: RequestOption = {}) => {
+    return postRequest(`/apminipg/assure/checkApplyInfo`, data, options)
+}
+
+// 提交
+export const commitAssureInfo = (data: any, options: RequestOption = {}) => {
+    return getRequest(`/apminipg/assure/commit`, data, options)
+}
+
+//失效担保
+export const cancelAssure = (data: any, options: RequestOption = {}) => {
+    return getRequest(`/apminipg/assure/vitiate`, data, options)
+}
+
+// 推荐支行
+export const getNearBank = (data: any, options: RequestOption = {}) => {
+    return getRequest(`/apminipg/bankBranch/getNearbyBranch`, data, options)
+}
+
+//二维码
+export const getQrCodeInfo = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/wxminipg/verifyAndGetQrCodeInfo`, data, options)
+}
+
+//更新用户信息
+export const updateUserInfo = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/wxminipg/updateUserInfo`, data, options)
+}
+
+// 协议
+export const getProtocal = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/CustAuth/getTemplateDetail`, data, options)
+}
+
+// 注销
+export const signOff = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/wxminipg/signOff`, data, options)
+}
+
+export const getProductDetail = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/Product/getDsegProductList`, data, options)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

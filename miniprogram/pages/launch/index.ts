@@ -1,0 +1,47 @@
+// pages/launch/index.ts
+import { getMarketDetail } from "../../services/api";
+import { StoreKeys } from "../../utils/keys";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    imgList: [],
+    indicatorDots: true,
+    autoplay: true,
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad() {
+    getMarketDetail({
+        materialType: 4
+    }, {
+        success: (result: any) => {
+            this.setData({
+                imgList: result 
+            })
+        }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+  },
+  jump() {
+    const token = wx.getStorageSync(StoreKeys.token);
+    if (token) {
+        wx.switchTab({
+            url: "/pages/index/index"
+        })
+    } else {
+        wx.navigateTo({
+            url: '/pages/login/index'
+        })
+    }
+  }
+})

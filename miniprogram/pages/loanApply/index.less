@@ -1,5 +1,6 @@
 /* pages/loanApply/index.wxss */
 .loan-apply-container {
+    overflow: hidden;
     padding-bottom: 20rpx;
     .top-tip{
         padding: 0 24rpx;
@@ -239,6 +240,7 @@
             display: inline-block;
             color: #666;
         }
+        
         button{
             display: flex;
             align-items: center;
@@ -251,6 +253,127 @@
             font-weight: normal;
             font-size: 26rpx;
             box-shadow: 0px 10px 10px 0px rgba(105,192,255,0.2);
+        }
+    }
+    .bank-lists{
+        padding: 40rpx 20rpx;
+        margin: 24rpx;
+        background: #fff;
+        border-radius: 8rpx;
+        font-size: 26rpx;
+        .top-area{
+            display: flex;
+            justify-content: space-between;
+            color: #333;
+            .select{
+                color: #999;
+            }
+            .more{
+                color: #1F55EC;
+                font-size: 24rpx;
+            }
+        }
+        .bank-content{
+            display: flex;
+            align-items: center;
+            margin-top: 20rpx;
+            .bank-item{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20rpx 25rpx;
+                background-color: #F5F5F5;
+                width: 30%;
+                margin-right: 10rpx;
+                border-radius: 10rpx;
+                font-size: 24rpx;
+                &:last-child{
+                    margin-right: 0;
+                }
+
+                &.active{
+                    background-color: #E4F2FC;
+                    .selected{
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        width: 37rpx;
+                        height: 32rpx;
+                    }
+                }
+                .name{
+                    margin-bottom: 14rpx;
+                }
+                .distance{
+                    display: flex;
+                    align-items: center;
+                    color: #666666;
+                    .icon {
+                        width: 17rpx;
+                        height: 17rpx;
+                        margin-right: 13rpx;
+                    }
+                }
+            }
+        }
+    }
+    .pupop-content{
+        background: #fff;
+        height: 800rpx;
+        padding: 24rpx;
+        .content-list{
+            display: flex;
+            flex-direction: column;
+            .title{
+                font-size: 36rpx;
+                margin-bottom: 40rpx;
+                font-weight: 600;
+                text-align: center;
+            }
+            .bank-content{
+                height: 700rpx;
+                overflow: scroll;
+                
+            }
+            .bank-item{
+                width: 100%;
+                background: red;
+                padding: 30rpx 40rpx;
+                background: #F4F4F4;
+                border-radius: 10rpx;
+                margin-bottom: 20rpx;
+                box-sizing: border-box;
+
+                &.active{
+                    background: #6B8DED;
+                    color: #fff;
+                    .detail{
+                        color: #fff;
+                    }
+                }
+                
+                .bank-name{
+                    margin-bottom: 40rpx;
+                    font-size: 36rpx;
+                    font-weight: bold;
+                }
+                .detail{
+                    font-size: 26rpx;
+                    color: #999;
+                    .detail-item{
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10rpx;
+                    }
+                    image{
+                        margin-right: 17rpx;
+                        width: 32rpx;
+                        height: 32rpx;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,6 +1,0 @@
-<!--pages/agencyTask/index.wxml-->
-<view class="agency-page">
-    <block wx:for="{{loanLists}}" wx:key="{{item.productName}}">
-        <l-list title="{{item.productName}}" bind:tap="onClickItem" l-class="list" data-index="{{index}}"/>
-    </block>
-</view>

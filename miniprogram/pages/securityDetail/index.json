@@ -1,4 +1,6 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "l-empty": "/components/empty"
+    },
     "navigationBarTitleText": "担保详情"
   }

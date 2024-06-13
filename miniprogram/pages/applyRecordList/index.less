@@ -24,6 +24,8 @@
             font-size: 26rpx;
             color: #666;
             .item{
+                display: flex;
+                align-items: center;
                 margin-bottom: 20rpx;
                 &:last-child{
                     margin-bottom: 0;
@@ -33,6 +35,11 @@
                     &.status{
                         color: #0088FB;
                     }
+                }
+                .phone{
+                    width: 36rpx;
+                    height: 36rpx;
+                    margin-left: 10rpx;
                 }
             }
         }
@@ -50,6 +57,7 @@
                 border-radius: 50rpx;
                 &.disabled{
                     background-color: #C4C4C4;
+                    pointer-events: none;
                 }
             }
         }

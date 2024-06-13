@@ -1,6 +1,6 @@
 <!--pages/loanApply/index.wxml-->
 <view class="loan-apply-container">
-    <l-notice-bar l-class="notice-tip" show="{{true}}" type="roll" speed="1000">本人自愿申请南海农商银行市民贷贷款产品，并已阅读且同意相关风险内容及授权协议，本人承诺本次申请为个人意愿申请，申请中无中介等人员参与。</l-notice-bar>
+    <l-notice-bar l-class="notice-tip" show="{{true}}" type="roll" speed="1000">本人自愿申请xxxx银行市民贷贷款产品，并已阅读且同意相关风险内容及授权协议，本人承诺本次申请为个人意愿申请，申请中无中介等人员参与。</l-notice-bar>
     <view class="step-container">
         <l-steps active-index="2" color="#1F55EC">
             <l-step title="证件上传"></l-step>
@@ -14,9 +14,9 @@
             <text class="intention-text">意向金额（万元）</text>
             <view class="intention-money">
                 <view class="sign">￥</view>
-                <l-input type="number" maxlength="2" hide-label="{{true}}" l-class="input-l" showRow="{{false}}" placeholder="请输入" bind:lininput="onInput" data-key="applyAmount" />
+                <l-input type="number" bind:linblur="onBlur" value="{{applyData.applyAmount}}"  maxlength="2" hide-label="{{true}}" l-class="input-l" showRow="{{false}}" placeholder="请输入" bind:lininput="onInput" data-key="applyAmount" />
             </view>
-            <text class="limit-desc">可输入2~30</text>
+            <text class="limit-desc" wx:if="amountMax">可输入{{amountMin}}~{{amountMax}}</text>
         </view>
     </view>
     <view class="base-info-container">
@@ -29,10 +29,10 @@
             </picker>
         </l-form-item>
         <l-form-item l-form-item-class="form-item-k" label="紧急联系人姓名" name="iceName">
-            <l-input id="iceName" bind:lininput="onInput" placeholder="请输入" hide-label show-row="{{false}}" l-input-class="input-right" data-key="iceName"></l-input>
+            <l-input id="iceName" value="{{applyData.iceName}}" bind:lininput="onInput" placeholder="请输入" hide-label show-row="{{false}}" l-input-class="input-right" data-key="iceName"></l-input>
         </l-form-item>
         <l-form-item l-form-item-class="form-item-k" label="紧急联系人联系方式" name="icePhone">
-            <l-input id="icePhone" type="number" maxlength="11" placeholder="请输入" hide-label show-row="{{false}}" l-input-class="input-right" bind:lininput="onInput" data-key="icePhone"></l-input>
+            <l-input id="icePhone" value="{{applyData.icePhone}}"  type="number" maxlength="11" placeholder="请输入" hide-label show-row="{{false}}" l-input-class="input-right" bind:lininput="onInput" data-key="icePhone"></l-input>
         </l-form-item>
         <l-form-item l-form-item-class="form-item-k" label="与借款人关系" name="iceRelation">
             <picker mode="selector" range="{{relationArray}}" bindchange="onPicker" data-key="iceRelation">
@@ -43,7 +43,7 @@
             </picker>
         </l-form-item>
         <l-form-item l-form-item-class="form-item-k" label="推荐员工编号" name="referenceNo">
-            <l-input placeholder="请输入" hide-label show-row="{{false}}" l-input-class="input-right" bind:lininput="onInput" data-key="referenceNo"></l-input>
+            <l-input placeholder="请输入" value="{{applyData.referenceNo}}"  hide-label show-row="{{false}}" l-input-class="input-right" bind:lininput="onInput" data-key="referenceNo"></l-input>
         </l-form-item>
     </view>
     <view class="phone-container">
@@ -58,7 +58,7 @@
             <view class="list">
                 <text class="label">验证码</text>
                 <view class="right-area">
-                    <l-input class="" type="number" data-key="smsCode" maxlength="6" type="text" hide-label show-row="{{false}}" bind:lininput="onInput" />
+                    <l-input class="" type="number" value="{{applyData.smsCode}}" data-key="smsCode" maxlength="6" type="text" hide-label show-row="{{false}}" bind:lininput="onInput" />
                     <view class="send-code {{countNumber ? 'disabled' : ''}}" bind:tap="getSmsCode">{{countNumber ? countNumber + 's' : '发送验证码'}}</view>
                 </view>
             </view>
@@ -67,7 +67,28 @@
             <view class="check-toggle" bind:tap="onToggle">
                 <image wx:if="{{isToggleCheck}}" src="/images/icon/icon-check.png" mode="" />
             </view>
-            <view>我已阅读并同意<text class="p-link">《信息采集、使用及报送授权书》</text><text class="p-link">《人行 征信授权书》</text></view>
+            <view bind:tap="lookProtocal">我已阅读并同意<text class="p-link" >《政务信息查询授权书》</text><text class="p-link">《征信查询授权书》</text><text class="p-link">《第三方数据查询授权书》</text></view>
+        </view>
+        <view class="bank-lists" wx:if="{{showBankList.length > 0 && !applyData.referenceNo}}">
+            <view class="top-area">
+                <view class="left">
+                    <text class="title">推荐附近支行</text>
+                    <text class="select">（请选择）</text>
+                </view>
+                <view class="more" bind:tap="onShowBankList">查看更多</view>
+            </view>
+            <view class="bank-content">
+                <block wx:for="{{showBankList}}" wx:key="{{item.deptCode}}">
+                    <view class="{{selectBankCode === item.deptCode ? 'active' : ''}} bank-item" bind:tap="onSelectBank" data-code="{{item.deptCode}}">
+                        <view class="name">{{item.deptName}}</view>
+                        <view class="distance">
+                           <image class="icon" src="/images/icon/icon-distance.png" mode=""/> {{DistanceModule.handleDistance(item.distance)}}
+                        </view>
+                        <image wx:if="{{selectBankCode === item.deptCode}}" class="selected" src="/images/icon/icon-selected.png" mode=""/>
+                    </view>
+                </block>
+
+            </view>
         </view>
         <l-button l-class="apply-btn" bind:tap="applyCredit">提交申请</l-button>
     </view>
@@ -79,4 +100,41 @@
             <button bind:tap="onGetAddress">确认</button>
         </view>
     </l-popup>
+
+    <l-popup show="{{isShowBank}}" content-align="bottom">
+        <view class='pupop-content'>
+            <view class="content-list">
+                <view class="title">选择支行</view>
+                <scroll-view class="bank-content" scroll-y="true">
+                    <block wx:for="{{bankList}}" wx:key="{{item.deptCode}}">
+                        <view class="{{selectBankCode === item.deptCode ? 'active' : ''}} bank-item" bind:tap="onSelectBank" data-code="{{item.deptCode}}">
+                            <view class="bank-name">{{item.deptName || '--'}}</view>
+                            <view class="detail">
+                                <view class="detail-item">
+                                    <image wx:if="{{selectBankCode !== item.deptCode}}" src="/images/icon/icon-address.png" mode="" />
+                                    <image wx:if="{{selectBankCode === item.deptCode}}" src="/images/icon/icon-white-address.png" mode="" />
+                                    {{item.deptAddr || '--'}}
+                                </view>
+                                <view class="detail-item">
+                                    <image wx:if="{{selectBankCode !== item.deptCode}}" src="/images/icon/icon-phone.png" mode="" />
+                                    <image wx:if="{{selectBankCode === item.deptCode}}" src="/images/icon/icon-white-phone.png" mode="" />{{item.phone || '--'}}
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </view>
+        </view>
+    </l-popup>
 </view>
+
+<wxs module="DistanceModule">
+    var handleDistance = function(distance) {
+        if (!distance) return '';
+        return Number(distance).toFixed(2) + 'km';
+    }
+
+    module.exports = {
+        handleDistance: handleDistance
+    }
+</wxs>

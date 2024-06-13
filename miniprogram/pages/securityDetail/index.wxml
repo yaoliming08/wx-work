@@ -1,24 +1,28 @@
 <!--pages/securityDetail/index.wxml-->
+<wxs src="../../utils/common.wxs" module="StatusModule"></wxs>
+
 <view class="security-detail">
-    <view class="security-list">
-        <view class="title">产品名称：消费贷</view>
+    <view class="security-list" wx:for="{{assureList}}" wx:key="{{item.id}}">
+        <view class="title">产品名称：市民贷</view>
         <view class="content">
             <view class="item"> 
                 <text class="label">担保人姓名: </text>
-                <text class="value">李丽华</text>
+                <text class="value">{{item.assureName}}</text>
             </view>
             <view class="item">
                 <text class="label"> 担保人手机尾号: </text>
-                <text class="value"> 6958</text>
+                <text class="value">{{item.assurePhone}}</text>
             </view>
             <view class="item">
                 <text class="label">申请时间:</text>
-                <text class="value">2024-03-15</text>
+                <text class="value">{{item.createTime}}</text>
             </view>
             <view class="item">
                 <text class="label">状态：</text>
-                <text class="value">已提交担保人</text>
+                <!-- <text class="value">{{StatusModule.getStatus(item.assureStatus)}}</text> -->
+                <text class="value">{{StatusModule.getStatusText(item.assureStatus)}}</text>
             </view>
         </view>
     </view>
+    <l-empty wx:if="{{!assureList.length}}"/>
 </view>

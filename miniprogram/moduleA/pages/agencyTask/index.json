@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-list": "/components/list/index",
+    "l-empty": "/components/empty"
+  },
+  "navigationBarTitleText": "待办任务"
+}

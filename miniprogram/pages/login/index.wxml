@@ -9,6 +9,13 @@
         <text class="text">来到某某银行进件小程序</text>
     </view>
     <view class="image-wrap">
+        <image src="https://miniprogram.lixuepeng.cn/group1/M00/00/09/birvhmZEGaGAG5_VAAExlyHhbA8024.png" mode=""/>
     </view>
     <l-button bindgetphonenumber="getRealtimePhoneNumber" open-type="getPhoneNumber" l-class="btns">登录</l-button>
+
+    <l-dialog show="{{isShow}}" type="confirm" show-title="{{false}}" confirm-text="同意" cancel-text="拒绝" bind:linconfirm="onConfirm" bind:lincancel="onCancel">
+        <view class="dialog-content">
+            感谢您使用进件小程序和服务，为了更好地保护您的权益和提供优质的服务，我们有必要将按照国家相关规定采集和使用个人信息，请您在点击“同意”之前仔细阅读<text class="dialog-link" bind:tap="onLink">《个人信息保护政策》</text>，您点击“同意”后及视为您接受本<text class="dialog-link" bind:tap="onLink">《个人信息保护政策》</text>，我行将按照相关法律法规及本政策来合法使用和保护您的个人信息。
+        </view>
+    </l-dialog>
 </view>

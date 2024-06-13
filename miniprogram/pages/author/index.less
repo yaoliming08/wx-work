@@ -1,0 +1,64 @@
+/* pages/author/index.wxss */
+.author-userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200rpx;
+    .avatar-btn{
+        width: 300rpx;
+        height: 200rpx;
+        background: #F4F4F4;
+        image, .click-me{
+            width: 200rpx;
+            height: 200rpx;
+            border-radius: 50%;
+        }
+        .click-me{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            line-height: 44rpx;
+            background-color: #B6B6B6;
+            color: #fff;
+            font-size: 32rpx;
+        }
+    }
+    .userName{
+        display: flex;
+        align-items: center;
+        width: 600rpx;
+        height: 80rpx;
+        padding: 0 36rpx;
+        margin-top: 80rpx;
+        box-sizing: border-box;
+        border-radius: 10rpx;
+        background-color: #fff;
+        color: #333;
+        .label{
+            flex: 0 0 100rpx
+        }
+        input{
+            flex: 1;
+            text-align: right;
+        }
+    }
+    .gohome{
+        width: 600rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        margin-top: 120rpx;
+        text-align: center;
+        background-color: #1F55EC;
+        border-radius: 40rpx;
+        color: #fff;
+        font-size: 30rpx;
+        &.disabled{
+            background-color: #B6B6B6;
+            color: #fff;
+            pointer-events: none;
+        }
+    }
+}

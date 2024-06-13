@@ -1,8 +1,10 @@
 page {
     background: #FCFDFE;
+    overflow-x: hidden;
 }
 
 .home-container {
+    overflow: hidden;
     .notice{
         padding: 0 30rpx;
         font-size: 26rpx;
@@ -128,6 +130,22 @@ page {
                         height: 80rpx;
                         border-radius: 40rpx;
                         background-color: #1F55EC;
+                    }
+                }
+                .status-show{
+                    background: #FFFEF3;
+                    padding: 28rpx 42rpx;
+                    margin-bottom: 38rpx;
+                    font-size: 24rpx;
+                    color: #999999;
+                    .status-item{
+                        margin-bottom: 10rpx;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        .value{
+                            color: #666;
+                        }
                     }
                 }
 
@@ -303,6 +321,49 @@ page {
             }
         }
     }
+    .introduction-content{
+        position: relative;
+        height: 240rpx;
+        padding: 20rpx 25rpx;
+        margin: 24rpx 0;
+        box-sizing: border-box;
+        .bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            height: 240rpx;
+            width: 100%;
+        }
+        .title{
+            font-size: 30rpx;
+            color: #333;
+        }
+        .intro-items{
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+            image{
+                width: 322rpx;
+                height: 140rpx;
+            }
+        }
+    }
+    .vig-items{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20rpx;
+        image{
+            height: 240rpx;
+        }
+        .vig-1{
+            width: 240rpx;
+            flex: 0 0 240rpx;
+            margin-right: 20rpx;
+        }
+    }
     .service-wrap{
         display: flex;
         flex-direction: column;
@@ -314,8 +375,32 @@ page {
     .dialog-content{
         font-size: 24rpx;
         color: #666;
-        .dialog-link{
-            color: #174BA5;
+        text-indent: 2em;
+        .guset{
+            text-indent: 0;
         }
+        .tip{
+            margin: 10rpx 0;
+            color: red;
+        }
+        .dialog-btn-cancel, .dialog-btn-confirm{
+            font-size: 24rpx !important;
+        }
+        .confirmDisabled{
+            color: #999;
+            
+        }
+    }
+    .rrrrr{
+        pointer-events: none;
+        color: #999 !important;
+        font-size: 24rpx !important;
+    }
+    .dddd{
+        color: #3683d6;
+        font-size: 24rpx !important;
+    }
+    .cancel-text{
+        font-size: 24rpx !important;
     }
 }

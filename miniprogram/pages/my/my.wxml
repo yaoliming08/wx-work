@@ -4,7 +4,7 @@
         <image class="bg" src="/images/my@top.png" mode=""/>
         <view class="detail">
             <view class="avatar-wrap">
-                <image src="/images/avatar.png" mode=""/>
+                <image src="{{userInfo.userHeadPic}}" mode=""/>
             </view>
 
             <view class="content" wx:if="{{!isLogin}}">
@@ -12,11 +12,14 @@
                 <text>登录享金融专属服务</text>
             </view>
             <view class="content" wx:if="{{isLogin}}">
-                <text class="name">{{userInfo.name ? userInfo.name : '昵称：微信用户'}}</text>
-                <text>{{userInfo.userPhoneHide}}</text>
+                <text class="name">{{userInfo.nameHide ? userInfo.nameHide : userInfo.userNickName || '--'}}</text>
+                <text>手机号：{{userInfo.userPhone || "--"}}</text>
             </view>
         </view>
-      <button class="login" bind:tap="onLogin" bindgetphonenumber="getRealtimePhoneNumber" open-type="{{isLogin ? '' : 'getPhoneNumber'}}">{{!isLogin ? '登录' : userInfo.realNameFlag === '0' ? '去认证' : '已认证'}}</button>  
+        <view class="set-icon" catch:tap="goDetail">
+            <image src="/images/icon/icon-set.png" mode=""/>
+        </view>
+      <!-- <button class="login" bind:tap="onLogin" bindgetphonenumber="getRealtimePhoneNumber" open-type="{{isLogin ? '' : 'getPhoneNumber'}}">{{userInfo.realNameFlag === '0' ? '去认证' : '已认证'}}</button>   -->
     </view>
     <view class="record-container">
         <view class="record-items">
@@ -30,14 +33,14 @@
     </view>
     <view class="my-list-container">
         <block wx:for="{{lists}}" wx:key="{{text}}">
-            <l-list title="{{item.text}}" image="{{item.icon}}" right-desc="{{(index === 0 &&userInfo.realNameFlag === '0') ? '未实名' : ''}}" icon="cart"  l-class="list" data-index="{{index}}" bind:tap="onClickItem"></l-list>
+            <l-list title="{{item.text}}" image="{{item.icon}}" right-desc="{{index === 0 ?userInfo.realNameFlag === '0' ? '未实名' : '已实名' : ''}}" icon="cart"  l-class="list" data-index="{{index}}" bind:tap="onClickItem"></l-list>
         </block>
     </view>
     <view class="link-me">
         <text>如有问题，请拨打指定客服电话</text>
         <view class="phone" bind:tap="onCallPhone">
             <image src="/images/my/icon-phone.png" mode=""/>
-            <text>0757-960123</text>
+            <text>10086</text>
         </view>
     </view>
     <l-popup show="{{isShowPopup}}">

@@ -1,0 +1,16 @@
+var statusConfig = {
+    '1': '担保待发起',
+    '2': '发起担保',
+    '3': '担保审批中',
+    '4': '担保人拒绝',
+    '5': '担保人审核不通过',
+    '6': '担保人审核通过'
+};
+var getStatusText = function (status) {
+    if (!status) return;
+    return statusConfig[status.toString()]
+};
+
+module.exports = {
+    getStatusText: getStatusText
+}

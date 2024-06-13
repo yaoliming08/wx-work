@@ -1,0 +1,9 @@
+<!--pages/protocalDetail/index.wxml-->
+
+<view class='protocal-detail'>
+    <rich-text nodes="{{templateContent}}"></rich-text>
+    <view class="btn {{disabled ? 'disabled' : '' }}" bind:tap="onNext">
+        <text wx:if="{{disabled}}">请阅读完成以上协议（{{times}}）s</text>
+        <text wx:if="{{!disabled}}">{{step <= 1 ? '同意并阅读下一份协议' : '同意并返回上一页面'}}</text>
+    </view>
+</view>

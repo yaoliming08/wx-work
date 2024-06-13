@@ -1,0 +1,14 @@
+<!--pages/userDetail/index.wxml-->
+<view class="user-detail">
+    <view class="content">
+        <l-list title="真实姓名" l-class="list" right-desc="{{userInfo.nameHide || '--'}}" />
+        <l-list title="手机号码" l-class="list" right-desc="{{userInfo.userPhoneHide|| '--'}}" />
+        <l-list title="身份证号码" l-class="list" right-desc="{{userInfo.idCardHide || '--'}}" />
+    </view>
+
+    <view class="btns">
+        <view class="btn" bind:tap="onExit">退出登录</view>
+        <view class="btn" bind:tap="onLogoff">注销用户</view>
+    </view>
+    <l-dialog l-content-class="content-text" show="{{show}}" type="confirm" confirm-color="#1F55EC"  title="注销" content="{{offText}}" bind:linconfirm="onConfirm"></l-dialog>
+</view>

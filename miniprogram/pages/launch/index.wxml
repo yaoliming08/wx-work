@@ -1,0 +1,11 @@
+<!--pages/launch/index.wxml-->
+<view class="lanch-page">
+    <swiper class="swiper-container" loop="{{true}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="#ffffff"  	indicator-color="rgba(255,255,255,0.5)">
+        <block wx:for="{{imgList}}" 	>
+            <swiper-item>
+                <image src="{{item.materialPoster}}" class="slide-image" mode="widthFix"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="jump" bind:tap="jump">跳过</view>
+</view>

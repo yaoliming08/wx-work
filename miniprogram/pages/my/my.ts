@@ -34,47 +34,38 @@ Page({
             {
                 text: '实名认证',
                 icon: "/images/my/icon-list-1.png",
+                isNeedAuth: true,
             },
             {
                 text: '授权记录',
                 icon: "/images/my/icon-list-2.png",
-            },
-            {
-                text: '续贷/展期记录',
-                icon: "/images/my/icon-list-3.png",
+                isNeedAuth: true
             },
             {
                 text: '结清证明',
                 icon: "/images/my/icon-list-4.png",
-            },
-            {
-                text: '贷款征询函',
-                icon: "/images/my/icon-list-5.png",
+                isNeedAuth: true
             },
             {
                 text: '礼券包',
                 icon: "/images/my/icon-list-6.png",
-                path: "/pages/giftVoucher/index"
+                path: "/moduleA/pages/giftVoucher/index",
+                isNeedAuth: true
             },
             {
                 text: '常见问题',
                 icon: "/images/my/icon-list-7.png",
-                path: "/pages/commonQuestion/index",
-            },
-            {
-                text: '担保情况',
-                icon: "/images/my/icon-list-8.png",
-                path: "/pages/securityList/index"
+                path: "/moduleA/pages/commonQuestion/index",
             },
             {
                 text: '待办任务',
                 icon: "/images/my/icon-list-8.png",
-                path: "/pages/agencyTask/index"
+                path: "/moduleA/pages/agencyTask/index"
             },
             {
                 text: '隐私管理',
                 icon: "/images/my/icon-list-9.png",
-                path: "/pages/privacyList/index"
+                path: "/moduleA/pages/privacyList/index"
             }
         ]
     },
@@ -119,37 +110,47 @@ Page({
     },
     onCallPhone() {
         wx.makePhoneCall({
-            phoneNumber: '0757-960123'
+            phoneNumber: '10086'
         })
     },
     onClickTab: function (e: WechatMiniprogram.BaseEvent) {
         const { index } = e.currentTarget.dataset;
-        const { path = '' } = this.data.recordTabs[index]
-        wx.navigateTo({
-            url: path
-        })
-    },
-    onClickItem: function (e: WechatMiniprogram.BaseEvent) {
-        const { index } = e.currentTarget.dataset;
-        const { path } = this.data.lists[index];
-        if (index) {
+        const { path = '' } = this.data.recordTabs[index];
+        if(this.data.userInfo?.realNameFlag === '0') {
+            this.setData({
+                isShowPopup: true
+            })
+        } else {
             wx.navigateTo({
                 url: path
             })
-        } else {
-            if (this.data.userInfo?.realNameFlag === '0') {
-                this.setData({
-                    isShowPopup: true
-                })
-            }
         }
+    },
+    onClickItem: function (e: WechatMiniprogram.BaseEvent) {
+        const { index } = e.currentTarget.dataset;
+        const { path = '', isNeedAuth } = this.data.lists[index];
+        if ( isNeedAuth && this.data.userInfo?.realNameFlag === '0') {
+            this.setData({
+                isShowPopup: true
+            })
+        } else {
+            if(!path) return;
+            wx.navigateTo({
+                url: path
+            })
+        }
+    },
+    goDetail() {
+        wx.navigateTo({
+            url: '/pages/userDetail/index'
+        })
     },
     onRealName() {
         getAuthUrl({
             authType: 2,
             supply: 'tencent',
             authScene: 'SCENE_001',
-            productCode: 'PRD001'
+            productCode: 'test001'
         }, {
             success: (result) => {
                 const { authToken = '' } = result;

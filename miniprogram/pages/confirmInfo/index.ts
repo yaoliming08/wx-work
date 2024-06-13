@@ -8,20 +8,22 @@ Page({
      */
     data: {
         idCardInfo: {},
-        path: ''
+        path: '',
+        areaCode: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        const { bizToken, path } = options;
+        const { bizToken, path, areaCode } = options;
         getAuthResult({ seqNo: '', bizToken }, {
             success: (result: any) => {
                 const { idCardInfo } = result;
                 this.setData({
                     idCardInfo,
-                    path
+                    path,
+                    areaCode
                 })
             }
 
@@ -76,12 +78,19 @@ Page({
     onShareAppMessage() {
 
     },
-    saveInfo: function() {
-        saveAuthResult({...this.data.idCardInfo}, {
+    saveInfo: function () {
+        saveAuthResult({ ...this.data.idCardInfo }, {
             success: (result) => {
-                wx.switchTab({
-                    url: this.data.path ?  `${this.data.path}` : "/pages/index/index" 
-                })
+                const { path, areaCode } = this.data;
+                if (path) {
+                    wx.switchTab({
+                        url: path
+                    })  
+                } else {
+                    wx.navigateTo({
+                        url: `/pages/loanApply/index?areaCode=${areaCode}`
+                    })
+                }
             }
         })
     }

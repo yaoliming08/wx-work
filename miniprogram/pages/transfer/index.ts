@@ -14,7 +14,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        const { authToken, applyId, path = '' } = options;
+        const { authToken, applyId, applyAssureId = '', path = '', areaCode = '' } = options;
         if (authToken) {
             startEid({
                 data: {
@@ -24,11 +24,15 @@ Page({
                     const { token, verifyDone } = res;
                     if (applyId) {
                         wx.redirectTo({
-                            url: `/pages/creditResult/index?applyId=${applyId}`
+                            url: `/pages/creditResult/index?applyId=${applyId}&areaCode=${areaCode || ''}&bizToken=${authToken}`
+                        })
+                    } else if(applyAssureId) {
+                        wx.redirectTo({
+                            url: `/pages/assureResult/index?applyAssureId=${applyAssureId}&bizToken=${authToken}`
                         })
                     } else {
                         wx.redirectTo({
-                            url: `/pages/confirmInfo/index?bizToken=${token}&path=${path}`
+                            url: `/pages/confirmInfo/index?bizToken=${token}&path=${path}&areaCode=${areaCode || ''}`
                         })
                     }
                     
@@ -53,7 +57,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        console.log(56456456);
     },
 
     /**

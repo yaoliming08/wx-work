@@ -1,0 +1,5 @@
+<!--pages/securityResult/index.wxml-->
+<view class="security-result">
+    <image class="image" src="{{iconSuccess}}" mode=""/>
+    <text class="text">已成功添加担保人</text>
+</view>

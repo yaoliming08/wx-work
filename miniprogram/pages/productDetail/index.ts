@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options: any) {
-    const { url = "https://miniprogram.lixuepeng.cn/images/prdInfo.png" } = options;
+    const { url = "https://miniprogram.lixuepeng.cn/group1/M00/00/04/birvhmXmhbGASfyuAAQLg4-xcC8796.png" } = options;
     this.setData({
         imgUrl: url
     })

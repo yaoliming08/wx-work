@@ -1,22 +1,24 @@
 // pages/securityDetail/index.ts
-import { getInfoById } from "../../services/api";
+import { getAssureHistory } from "../../services/api";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    assureList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const { applyAssureId } = options;
-    getInfoById({applyAssureId},{
-        success: (result) => {
-            console.log(result);
+    const { applyId = '' } = options;
+    getAssureHistory({applyId }, {
+        success: (result: any) => {
+            this.setData({
+                assureList: result
+            })
         }
     })
   },

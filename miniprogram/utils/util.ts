@@ -81,14 +81,12 @@ export const onLogin = (code, onCallBack) => {
     wx.login({
         success: (res) => {
             const jsCode = res.code;
-            console.log(res, 10000);
             if (jsCode) {
                 authLogin({ jscode: jsCode, code }, {
                     success: (result: any) => {
                         const { token = '' } = result;
-                        console.log(result, '66666');
                         wx.setStorageSync(StoreKeys.token, token);
-                        onCallBack()
+                        onCallBack({...result, jscode: jsCode, code})
                         // this.queryUserInfo();
                     }
                 })

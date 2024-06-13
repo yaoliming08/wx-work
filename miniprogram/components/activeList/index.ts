@@ -20,7 +20,6 @@ Component({
    */
   methods: {
     onClick() {
-        console.log(activeItem);
     }
   }
 })

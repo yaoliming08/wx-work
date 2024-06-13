@@ -1,6 +1,4 @@
-import { getApplyList, getInvestigateList } from "../../services/api";
-
-import { ApplyStatusTexts } from "../../utils/util";
+import { getInvestigateList } from "../../services/api";
 
 Page({
 
@@ -16,14 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const { applyId, ...rest } = options;
-    console.log(rest);
+    const { applyId } = options;
     getInvestigateList({applyId}, {
         success: (result: any) => {
-            console.log(result);
             this.setData({
                 applyDetail: result,
-                productData: rest
+                productData: options
             })
         }
     })

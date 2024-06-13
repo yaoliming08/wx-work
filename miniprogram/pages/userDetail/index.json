@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-list": "/components/list/index",
+    "l-dialog": "/components/dialog/index"
+  },
+  "navigationBarTitleText": "个人信息"
+}

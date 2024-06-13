@@ -3,38 +3,54 @@
     <view class="security-content">
         <view class="title">新增担保人信息</view>
         <view class="list-wrap">
-            <l-list title="担保人姓名" l-list="list" l-right-class="right-list" >
-                <view slot="right-section" class="right-area">
-                    <input type="text" placeholder="请输入" class="l-input"/>
+            <view class="list">
+                <view class="label">担保人姓名</view>
+                <view class="right-area">
+                    <input type="text" disabled="{{!isEditStatus}}"  data-key="assureName" catch:input="onChangeInput" value="{{applyAssure.assureName}}" placeholder="请输入" class="l-input" />
                 </view>
-            </l-list>
-            <l-list title="身份证号码" l-list="list" l-right-class="right-list" >
-                <view slot="right-section" class="right-area">
-                    <input type="text" placeholder="请输入" class="l-input"/>
+            </view>
+            <view class="list">
+                <view class="label">身份证号码</view>
+                <view class="right-area">
+                    <input type="text" disabled="{{!isEditStatus}}" data-key="assureIdCard" bindinput="onChangeInput" value="{{applyAssure.assureIdCard}}" placeholder="请输入" class="l-input" />
                 </view>
-            </l-list>
-            <l-list title="担保人手机号" l-list="list" l-right-class="right-list" >
-                <view slot="right-section" class="right-area">
-                    <input type="text" placeholder="请输入" class="l-input"/>
+            </view>
+            <view class="list">
+                <view class="label">担保人手机号</view>
+                <view class="right-area">
+                    <input type="text" disabled="{{!isEditStatus}}" data-key="assurePhone" bindinput="onChangeInput" value="{{applyAssure.assurePhone}}" placeholder="请输入" class="l-input" />
                 </view>
-            </l-list>
-            <l-list title="与申请人关系" l-list="list" l-right-class="right-list" >
-                <view slot="right-section" class="right-area">
-                    <input type="text" placeholder="请输入" class="l-input"/>
+            </view>
+            <view class="list">
+                <view class="label">与申请人关系</view>
+                <view class="right-area">
+                    <picker mode="selector" disabled="{{!isEditStatus}}" range="{{loadUseArray}}" bindchange="onPicker" data-key="applyRelationship">
+                        <view class="picker-item">
+                            <text class="{{applyAssure.applyRelationship ? '' : 'noSelect' }} text">{{applyAssure.applyRelationship ? loadUseArray[applyAssure.applyRelationship - 1] : '请选择'}}</text>
+                            <l-icon name="right" color="#666" size="24"/>
+                        </view>
+                    </picker>
                 </view>
-            </l-list>
+            </view>
         </view>
-
     </view>
 
-    <view class="security-content">
+    <view class="security-content" wx:if="{{applyAssure.applyRelationship === 1}}">
         <view class="title">上传影像-补充结婚说明</view>
         <view class="upload-image">
-            <l-image-picker count="9" size-type="compressed" urls="{{urls}}" bind:linchange="onChange" />
+            <l-image-picker count="3" bind:linremove="removeImage" size-type="compressed" urls="{{fileUrls}}" bind:linchange="onChange" />
             <view class="tip">
                 <text class="mark-red">*</text>
                 提示:支持多张上传，请上传图像大小5MB以内。
             </view>
+        </view>
+    </view>
+
+    <view class="submit">
+        <view class="secutity-btn" wx:if="{{!isEditStatus}}" bind:tap="cancelSecutity">失效担保任务</view>
+        <view class="btns" wx:if="{{isEditStatus}}">
+            <view class="save-btn" bind:tap="onHandleInfo"  data-key="SAVE">保存</view>
+            <view class="secutity-btn" bind:tap="onHandleInfo" data-key="SEND">发送担保任务</view>
         </view>
     </view>
 </view>

@@ -3,7 +3,7 @@
 import { getAuthUrl, getHomeInfo, beforeApplyAuth, getMarketDetail } from "../../services/api";
 import { onLogin } from "../../utils/util";
 import { StoreKeys } from "../../utils/keys";
-// import { onGetAddressInfo } from "../../utils/authAddress";
+import { onGetAddressInfo } from "../../utils/authAddress";
 
 const applyTexts = {
     '0': '申请额度',
@@ -11,33 +11,37 @@ const applyTexts = {
     '7': '申请额度',
     '26': '去用款'
 }
+let timeId = null;
 var app = getApp<IAppOption>();
 
 Page({
     data: {
         isLogin: wx.getStorageSync(StoreKeys.token),
         loanData: {},
+        limitArea: '',
         prodList: [],
+        bannerList: [],
         applyTexts,
-        isShow: false
+        isShow: false,
+        confirmText: 10
     },
-    onLoad() {
-        this.setData({
-            isShow: !Boolean(wx.getStorageSync(StoreKeys.isShowAgree))
-        });
+    onLoad(options) {
     },
     onShow() {
         this.queryHomeInfo('NO_JUMP');
         if (wx.getStorageSync(StoreKeys.token)) {
-            // this.queryHomeInfo('NO_JUMP');
             this.getMarketDetail({materialType: 5})
         }
     },
 
     getMarketDetail(data) {
         getMarketDetail(data, {
-            success: (result) => {
-                console.log(result)
+            success: (result: any) => {
+               const list = result??[].map(item => item?.materialBanner || '');
+               console.log(list);
+               this.setData({
+                   bannerList: list
+               })
             }
         })
     },
@@ -45,23 +49,35 @@ Page({
     queryHomeInfo(status: string) {
         getHomeInfo({}, {
             success: (result: any) => {
-                const { applyInfo, prodList} = result;
-                
+                const { applyInfo, prodList, limitArea} = result;
                 this.setData({
                     loanData: applyInfo,
+                    limitArea,
                     prodList,
                 });
-                // const { applyStatus } = this.data.loanData;
-                // if (status === 'JUMP' && applyStatus === 0) {
-                //     this.onApply();
-                // }
             }
         })
     },
     goProductDetail: function () {
+        const {landingPage = ''} = this.data.prodList[0];
         wx.navigateTo({
-            url: '/pages/productDetail/index'
+            url: `/pages/productDetail/index?url=${landingPage}`
         })
+    },
+    setCountTime() {
+        let count = 10;
+        timeId && clearInterval(timeId);
+        timeId = setInterval(() => {
+            if (!count) {
+                clearInterval(timeId);
+                return;
+            }
+            count--;
+            this.setData({
+                confirmText: count
+            })
+        }, 1000);
+        
     },
     onApply() {
         const { allowApply = null } = this.data.loanData ?? {};
@@ -71,36 +87,49 @@ Page({
             });
             return;
         };
-    
-        beforeApplyAuth({
-            productCode: 'PRD001'
-        }, {
-            success: (result: any) => {
-                const { authToken = null, authType, authUrl = null } = result;
-                if (authType !== '0') {
-                    wx.navigateTo({
-                        url: `/pages/transfer/index?authToken=${authToken}`
-                    })
-                } else {
-                    wx.navigateTo({
-                        url: '/pages/loanApply/index'
-                    })
-                }
-            }
+        this.setData({
+            isShow: true,
+            confirmText: 10
         })
+        this.setCountTime();
     },
     onConfirm() {
         this.setData({
             isShow: false
+        });
+        onGetAddressInfo(res => {
+            const { city = '' } = res.result.address_component ?? {};
+            if (city && this.data.limitArea.includes(city)) {
+                beforeApplyAuth({
+                    productCode: 'test001'
+                }, {
+                    success: (result: any) => {
+                        const { authToken = null, authType, authUrl = null } = result;
+                        const { areaCode } = this.data.prodList[0];
+                        if (authType !== '0') {
+                            wx.navigateTo({
+                                url: `/pages/transfer/index?authToken=${authToken}&areaCode=${areaCode || ''}`
+                            })
+                        } else {
+                            wx.navigateTo({
+                                url: `/pages/loanApply/index?areaCode=${areaCode}`
+                            })
+                        }
+                    }
+                })
+            } else {
+                wx.showToast({title: `申请地域非${this.data.limitArea}，申请失败`, icon: 'none'})
+            }
         })
-        wx.setStorageSync(StoreKeys.isShowAgree, 'show_dialog');
     },
     onCancel() {
-        wx.exitMiniProgram();
+        this.setData({
+            isShow: false
+        });
     },
     onCallPhone() {
         wx.makePhoneCall({
-            phoneNumber: '0757-960123'
+            phoneNumber: '10086'
         })
     },
     getRealtimePhoneNumber(e: WechatMiniprogram.ButtonGetPhoneNumber) {
@@ -113,12 +142,6 @@ Page({
                 this.queryHomeInfo("JUMP");
             });
         }
-    },
-    onShare() {
-        wx.showShareMenu({
-            withShareTicket: true,
-            menus: ['shareAppMessage', 'shareTimeline']
-        })
     },
     onLink() {
         wx.navigateTo({

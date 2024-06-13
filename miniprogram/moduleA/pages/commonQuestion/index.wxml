@@ -1,0 +1,17 @@
+<!--pages/commonQuestion/index.wxml-->
+<view class="question-page">
+    <block wx:for="{{keys}}" wx:key="{{item.key}}">
+        <view wx:if="{{questionList[item.key]}}" class="block-wrap">
+            <view class="title">
+                <text class="text">{{item.title}}</text>
+                <view class="more">
+                    更多
+                    <image src="../../images/icon/icon-more.png" mode="" />
+                </view>
+            </view>
+            <view class="content" wx:for="{{questionList[item.key]}}" wx:key="{{item.id}}">
+                <l-list title="问题{{item.index}}：{{item.question}}" l-class="list" data-id="{{item.id}}" bind:tap="jumpDetail" />
+            </view>
+        </view>
+    </block>
+</view>

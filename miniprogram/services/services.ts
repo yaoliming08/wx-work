@@ -8,10 +8,18 @@ const ResponseStatus = {
 
 const showRequestError = (msg?: string) => {
     setTimeout(() => {
-        wx.showToast({
-            title: msg || '网络异常',
-            icon: 'none',
-        })
+        if (msg && msg.length >= 15) {
+            wx.showModal({
+                content: msg,
+                showCancel: false,
+                confirmColor: '#1F55EC'
+            })
+        } else {
+            wx.showToast({
+                title: msg || '网络异常',
+                icon: 'none',
+            })
+        }
     }, 100)
 }
 
@@ -71,6 +79,7 @@ const hideLoadingFn = () => {
 const handlerRequestOptions = (options: WechatMiniprogram.RequestOption & LoadingOption): WechatMiniprogram.RequestOption | void => {
     const { url, showLoading = true, success: successCallback, fail: failCallback, complete: completeCallback, IG_TOKEN, ...rest } = options;
     const token = wx.getStorageSync(StoreKeys.token) || '';
+    console.log(token, IG_TOKEN, 66666);
     if (!token && !IG_TOKEN) {
         goLogin();
         return;

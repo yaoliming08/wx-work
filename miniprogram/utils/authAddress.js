@@ -6,19 +6,19 @@ const qqmapsdk = new QQMapWX({
 });  
 
 
-export const onGetAddressInfo = (onCallback) => {
+export const onGetAddressInfo = (onCallback, onFailCallback = null) => {
     wx.getFuzzyLocation({
         type: 'wgs84',
         success(res) {
             const { latitude, longitude } = res;
-            
             transformAdress({location: `${latitude},${longitude}`}, (res) => {
                 onCallback(res);
             })
         },
         fail(res) {
+            onFailCallback && onFailCallback(res);
             wx.showToast({
-                title: '地理位置获取失败'
+                title: '请授权您的位置信息'
             })
         }
     })

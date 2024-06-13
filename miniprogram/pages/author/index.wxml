@@ -1,0 +1,15 @@
+<!--pages/author/index.wxml-->
+<view class="author-userInfo">
+    <l-button l-class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="getUserInfo" disabled-hover>
+        <view class="click-me" wx:if="{{!avatarUrl}}">
+            <text>点击授</text>
+            <text>权头像</text>
+        </view>
+        <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" mode="" />
+    </l-button>
+    <view class="userName">
+        <text class="label">昵称</text>
+        <input type="text" value="{{value}}" bindchange="changeName" type="nickname" bindinput="onInput" bindnicknamereview="handleNickName" placeholder="请授权昵称" />
+    </view>
+    <view bind:tap="handleClick" class="gohome {{avatarUrl && value ? '' :'disabled'}}" >进入首页</view>
+</view>
