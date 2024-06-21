@@ -80,36 +80,36 @@
                 </view>
             </view>
         </view>
-        <view class="selected-product" wx:if="{{prodList.length > 1}}">
+        <view class="selected-product" wx:if="{{prodList.length >= 1}}">
             <view class="title">精选产品</view>
             <view class="soon-loan">
                 <view class="product-name">
-                    <text class="">优才快贷</text>
-                    <text class="find-text">了解优才快贷</text>
+                    <text class="">{{prodList[0].name}}</text>
+                    <text class="find-text">了解优{{prodList[0].name}}</text>
                     <image src="" mode="" />
                 </view>
                 <view class="limit-money">
                     <text class="limit-text">最高可借额度（元）</text>
                     <view class="apply-money">
-                        <text class="money">1,000,000.00</text>
+                        <text class="money">{{prodList[0].amountMax  }}</text>
                         <l-button l-class="register">注册申请</l-button>
                     </view>
                 </view>
             </view>
-            <view class="loan-business-items">
+            <view class="loan-business-items" wx:if="{{prodList.length > 2}}">
                 <view class="bus-item">
-                    <text class="title">业主快贷</text>
+                    <text class="title">{{prodList[1].name}}</text>
                     <view class="limit-money">
                         <text>最高可借额度（元）</text>
-                        <text class="money">300,000.00</text>
+                        <text class="money">{{prodList[1].amountMax}}</text>
                     </view>
                     <l-button plain="{{true}}" l-class="btn">注册申请</l-button>
                 </view>
                 <view class="bus-item">
-                    <text class="title">业主快贷</text>
+                    <text class="title">{{prodList[2].name}}</text>
                     <view class="limit-money">
                         <text>最高可借额度（元）</text>
-                        <text class="money">300,000.00</text>
+                        <text class="money">{{prodList[2].amountMax}}</text>
                     </view>
                     <l-button plain="{{true}}" l-class="btn">注册申请</l-button>
                 </view>

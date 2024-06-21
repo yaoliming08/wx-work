@@ -82,7 +82,17 @@ export const onLogin = (code, onCallBack) => {
         success: (res) => {
             const jsCode = res.code;
             if (jsCode) {
-                authLogin({ jscode: jsCode, code }, {
+
+                const _scene_ = wx.getStorageSync(StoreKeys._scene_);
+
+                let requestObj = { jscode: jsCode, code }
+                if(_scene_){
+
+                    requestObj = { jscode: jsCode, code ,scene:_scene_}
+                }
+
+                
+                authLogin(requestObj, {
                     success: (result: any) => {
                         const { token = '' } = result;
                         wx.setStorageSync(StoreKeys.token, token);

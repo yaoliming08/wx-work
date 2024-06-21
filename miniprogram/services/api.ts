@@ -152,6 +152,18 @@ export const getQrCodeInfo = (data: any, options: RequestOption = {}) => {
     return postRequest(`/apminipg/wxminipg/verifyAndGetQrCodeInfo`, data, options)
 }
 
+//获取这个人的客户经理信息
+export const getCustPromoter = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/wxminipg/getCustPromoter`, data, options)
+   
+}
+
+
+//记录扫码事件 获取扫描流水号
+export const recordScan = (data: any, options: RequestOption = {}) => {
+    return postRequest(`/apminipg/wxminipg/recordScan`, data, options)
+}
+
 //更新用户信息
 export const updateUserInfo = (data: any, options: RequestOption = {}) => {
     return postRequest(`/apminipg/wxminipg/updateUserInfo`, data, options)

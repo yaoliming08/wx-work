@@ -80,7 +80,7 @@ const handlerRequestOptions = (options: WechatMiniprogram.RequestOption & Loadin
     const { url, showLoading = true, success: successCallback, fail: failCallback, complete: completeCallback, IG_TOKEN, ...rest } = options;
     const token = wx.getStorageSync(StoreKeys.token) || '';
     console.log(token, IG_TOKEN, 66666);
-    if (!token && !IG_TOKEN) {
+    if (!token && !IG_TOKEN && url !== '/apminipg/wxminipg/recordScan') {
         goLogin();
         return;
     }
@@ -114,6 +114,7 @@ export const getRequest = (url: string, data?: string | WechatMiniprogram.IAnyOb
 }
 
 export const postRequest = (url: string, data?: string | WechatMiniprogram.IAnyObject | ArrayBuffer, options: RequestOption = {}) => {
+    console.log(url,12123123)
     baseRequest(url, data, { ...options, method: "POST" });
 }
 

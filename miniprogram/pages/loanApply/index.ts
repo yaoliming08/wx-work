@@ -1,5 +1,5 @@
 // pages/loanApply/index.ts
-import { getUserInfo, getNearBank, getQrCodeInfo, sendSmsCode, applyCreditMoney, getProductDetail} from "../../services/api";
+import { getUserInfo, getNearBank, getQrCodeInfo, sendSmsCode, applyCreditMoney, getProductDetail ,getCustPromoter} from "../../services/api";
 import { onGetAddressInfo } from "../../utils/authAddress";
 import { StoreKeys } from "../../utils/keys";
 
@@ -68,7 +68,7 @@ Page({
         this.queryUserInfo();
         this.getProductDetail();
         if (_scene_) {
-            getQrCodeInfo({
+            getCustPromoter({
                 scene: _scene_
             }, {
                 success: (result: any) => {

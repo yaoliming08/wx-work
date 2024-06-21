@@ -1,5 +1,5 @@
 // pages/middleware/index.ts
-import { getQrCodeInfo } from "../../services/spi";
+import { getQrCodeInfo ,recordScan ,authLogin} from "../../services/api";
 import { StoreKeys } from "../../utils/keys";
 Page({
 
@@ -7,7 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
@@ -15,17 +14,40 @@ Page({
    */
   onLoad(options) {
     const { scene = '' } = options;
-    const token = wx.getStorageSync(StoreKeys.token);
+
+    console.log(scene,'初次进入页面')
+
+
+
     
     if (scene) {
-        wx.setStorageSync(StoreKeys._scene_, scene);
-        this.jumpPath(token);
+        this.recordScan(scene)
     } else {
         wx.removeStorageSync(StoreKeys._scene_);
         wx.navigateTo({
             url: '/pages/launch/index'
         })
     }
+  },
+
+
+  //获取扫码流水号
+  recordScan(scene:any){
+
+    console.log('获取流水码',scene)
+
+
+    recordScan({scene}, {
+        success: (result: any) => {
+            console.log('获取成功',result)
+            const token = wx.getStorageSync(StoreKeys.token);
+            wx.setStorageSync(StoreKeys.scanSeqNo, result);
+            wx.setStorageSync(StoreKeys._scene_, scene);
+            this.jumpPath(token);
+  
+        }
+    })
+
   },
 
   jumpPath(token) {

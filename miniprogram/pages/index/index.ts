@@ -49,12 +49,14 @@ Page({
     queryHomeInfo(status: string) {
         getHomeInfo({}, {
             success: (result: any) => {
+                console.log(result,'首页获取信息接口')
                 const { applyInfo, prodList, limitArea} = result;
                 this.setData({
                     loanData: applyInfo,
                     limitArea,
-                    prodList,
+                    prodList
                 });
+      
             }
         })
     },
