@@ -72,10 +72,13 @@ Page({
                 scene: _scene_
             }, {
                 success: (result: any) => {
+                    console.log(result,'绑定的客户经理信息')
                     const { referenceType } = result;
                     this.setData({
-                        applyData: {...this.data.applyData, referenceType}
+                        applyData: {...this.data.applyData, referenceType,...result ,referenceNo:result.code}
                     })
+
+                    console.log(this.data.applyData,332222222222)
                 }
             })
         };
