@@ -39,11 +39,13 @@ Page({
 
     recordScan({scene}, {
         success: (result: any) => {
-            console.log('获取成功',result)
+            console.log('获取成功',result,result.scanSeqNo)
+            
             const token = wx.getStorageSync(StoreKeys.token);
-            wx.setStorageSync(StoreKeys.scanSeqNo, result);
+            wx.setStorageSync(StoreKeys.scanSeqNo, result.scanSeqNo);
             wx.setStorageSync(StoreKeys._scene_, scene);
             this.jumpPath(token);
+       
   
         }
     })
@@ -51,6 +53,7 @@ Page({
   },
 
   jumpPath(token) {
+    console.log(12131)
     if (token) {
         wx.switchTab({
             url: '/pages/index/index',

@@ -5,5 +5,5 @@ export const StoreKeys = {
   isShowAgree: `${prefix}Agree`,
   isShowLoginAgree: `${prefix}Agree`,
   _scene_: `${prefix}Scene`,
-  scanSeqNo:''
+  scanSeqNo: `${prefix}ScanSeqNo`,
 }

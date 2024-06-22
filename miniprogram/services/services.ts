@@ -114,7 +114,6 @@ export const getRequest = (url: string, data?: string | WechatMiniprogram.IAnyOb
 }
 
 export const postRequest = (url: string, data?: string | WechatMiniprogram.IAnyObject | ArrayBuffer, options: RequestOption = {}) => {
-    console.log(url,12123123)
     baseRequest(url, data, { ...options, method: "POST" });
 }
 

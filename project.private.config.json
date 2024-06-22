@@ -10,9 +10,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/loanApply/index",
-          "pathName": "pages/loanApply/index",
-          "query": "",
+          "name": "pages/middleware/index",
+          "pathName": "pages/middleware/index",
+          "query": "scene=123456",
           "launchMode": "default",
           "scene": null
         },

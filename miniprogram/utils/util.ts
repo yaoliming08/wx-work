@@ -83,12 +83,12 @@ export const onLogin = (code, onCallBack) => {
             const jsCode = res.code;
             if (jsCode) {
 
-                const _scene_ = wx.getStorageSync(StoreKeys._scene_);
+                const scanSeqNo = wx.getStorageSync(StoreKeys.scanSeqNo);
 
                 let requestObj = { jscode: jsCode, code }
-                if(_scene_){
+                if(scanSeqNo){
 
-                    requestObj = { jscode: jsCode, code ,scene:_scene_}
+                    requestObj = { jscode: jsCode, code ,scanSeqNo:scanSeqNo}
                 }
 
                 
