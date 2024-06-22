@@ -24,6 +24,7 @@ Page({
         this.recordScan(scene)
     } else {
         wx.removeStorageSync(StoreKeys._scene_);
+        wx.removeStorageSync(StoreKeys.scanSeqNo);
         wx.navigateTo({
             url: '/pages/launch/index'
         })
