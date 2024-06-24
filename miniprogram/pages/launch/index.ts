@@ -10,7 +10,7 @@ Page({
     imgList: [],
     indicatorDots: true,
     autoplay: true,
-    jumpStr:3,
+    jumpStr:10,
     jumpTime:null
   },
 
@@ -29,12 +29,8 @@ Page({
 
 
       }else{
-        this.setData({
-          jumpStr : '跳过'
-        })
-
         clearInterval(jumpTime)
-
+        this.jump()
       }
       
 
