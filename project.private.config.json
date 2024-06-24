@@ -17,9 +17,9 @@
           "scene": null
         },
         {
-          "name": "pages/middleware/index",
-          "pathName": "pages/middleware/index",
-          "query": "scene=0aadd8095cbd45afaaa5f285922c4c8e",
+          "name": "pages/loanApply/index",
+          "pathName": "pages/loanApply/index",
+          "query": "",
           "launchMode": "default",
           "scene": null
         },

@@ -193,6 +193,9 @@ Page({
     },
 
     applyCredit: function () {
+
+
+
         const keyArray = Object.keys(this.data.applyData);
         for (let i = 0; i < keyArray.length; i++) {
             const item = keyArray[i];
@@ -221,6 +224,20 @@ Page({
                 return;
             }
         }
+
+
+        const reg = /^[^\u4e00-\u9fa5]+$/;
+
+        console.log('是否不包含中午',this.data.applyData.referenceNo,this.data.applyData)
+        if(!reg.test(this.data.applyData.referenceNo)){
+            wx.showToast({
+                icon: 'none',
+                title: '推荐员工编码不能包含中文',
+            });
+            return;
+        }
+
+
         onGetAddressInfo((res) => {
             const { address, location = {}, address_component = {}, formatted_addresses = {} } = res.result ?? {};
             this.onAppluCredit({
