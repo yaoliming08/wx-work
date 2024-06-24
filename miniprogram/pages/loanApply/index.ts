@@ -229,7 +229,7 @@ Page({
         const reg = /^[^\u4e00-\u9fa5]+$/;
 
         console.log('是否不包含中午',this.data.applyData.referenceNo,this.data.applyData)
-        if(!reg.test(this.data.applyData.referenceNo)){
+        if( this.data.applyData.referenceNo && !reg.test(this.data.applyData.referenceNo)){
             wx.showToast({
                 icon: 'none',
                 title: '推荐员工编码不能包含中文',
