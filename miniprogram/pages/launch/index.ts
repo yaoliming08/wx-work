@@ -1,6 +1,8 @@
 // pages/launch/index.ts
 import { getMarketDetail } from "../../services/api";
 import { StoreKeys } from "../../utils/keys";
+
+let jumpTime = null;
 Page({
 
   /**
@@ -19,7 +21,9 @@ Page({
    */
   onLoad() {
 
- let jumpTime =   setInterval(()=>{
+ 
+
+   jumpTime =   setInterval(()=>{
 
       if(this.data.jumpStr > 1){
 
@@ -55,6 +59,8 @@ Page({
   onReady() {
   },
   jump() {
+
+    clearInterval(jumpTime)
     const token = wx.getStorageSync(StoreKeys.token);
     if (token) {
         wx.switchTab({

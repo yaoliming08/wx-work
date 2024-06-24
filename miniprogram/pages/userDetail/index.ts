@@ -47,17 +47,21 @@ Page({
 
     },
     onConfirm() {
-        this.setData({
-            show: false
-        });
+  
         signOff({}, {
             success: (res) => {
                 wx.showToast({
+                    icon: 'none',
                     title: '注销成功'
                 });
+
                 wx.clearStorageSync();
                 setTimeout(() => {
                     wx.exitMiniProgram();
+                    wx.redirectTo({
+                        // url: "/pages/middleware/index",
+                         url: "/pages/login/index"
+                      });
                 }, 2000)
             }
         })
