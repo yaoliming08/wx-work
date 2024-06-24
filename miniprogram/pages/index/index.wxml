@@ -11,7 +11,7 @@
             <image class="icon-horn" src="/images/icon/icon-horn.png" mode="" />
             <text class="text">申请xxxx银行信贷产品，无需任何中介费</text>
         </view>
-        <view class="hot-loan-product">
+        <view class="hot-loan-product" wx:if="{{prodList.length}}">
             <view class="title">热门贷款产品</view>
             <view class="hot-loan-content">
                 <view class="loan-top-area">

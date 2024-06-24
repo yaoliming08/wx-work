@@ -10,12 +10,38 @@ Page({
     imgList: [],
     indicatorDots: true,
     autoplay: true,
+    jumpStr:3,
+    jumpTime:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+
+ let jumpTime =   setInterval(()=>{
+
+      if(this.data.jumpStr > 1){
+
+        this.setData({
+          jumpStr : this.data.jumpStr -1
+        })
+
+
+      }else{
+        this.setData({
+          jumpStr : '跳过'
+        })
+
+        clearInterval(jumpTime)
+
+      }
+      
+
+    },1000)
+    
+
+    
     getMarketDetail({
         materialType: 4
     }, {

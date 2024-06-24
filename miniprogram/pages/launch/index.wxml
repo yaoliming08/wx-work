@@ -7,5 +7,5 @@
             </swiper-item>
         </block>
     </swiper>
-    <view class="jump" bind:tap="jump">跳过</view>
+    <view class="jump" bind:tap="jump">{{jumpStr}}</view>
 </view>
