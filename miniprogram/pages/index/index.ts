@@ -23,7 +23,8 @@ Page({
         bannerList: [],
         applyTexts,
         isShow: false,
-        confirmText: 10
+        confirmText: 10,
+        currentProd:{}
     },
     onLoad(options) {
     },
@@ -81,8 +82,18 @@ Page({
         }, 1000);
         
     },
-    onApply() {
+    onApply(event:any) {
         const { allowApply = null } = this.data.loanData ?? {};
+
+        let { prodobj } = event.currentTarget.dataset ?? { }
+
+        this.setData({
+            currentProd:prodobj
+        })
+
+        console.log(this.data.loanData,7666)
+
+        console.log(this.data.prodList,111111111,event)
         if (allowApply  === 0) {
             wx.navigateTo({
                 url: '/pages/applyRecordList/index'
@@ -97,17 +108,17 @@ Page({
     },
     onConfirm() {
         this.setData({
-            isShow: false
+            isShow: false,
         });
         onGetAddressInfo(res => {
             const { city = '' } = res.result.address_component ?? {};
             if (city && this.data.limitArea.includes(city)) {
                 beforeApplyAuth({
-                    productCode: 'test001'
+                    productCode: this.data.currentProd.code
                 }, {
                     success: (result: any) => {
                         const { authToken = null, authType, authUrl = null } = result;
-                        const { areaCode } = this.data.prodList[0];
+                        const { areaCode } = this.data.currentProd;
                         if (authType !== '0') {
                             wx.navigateTo({
                                 url: `/pages/transfer/index?authToken=${authToken}&areaCode=${areaCode || ''}`
