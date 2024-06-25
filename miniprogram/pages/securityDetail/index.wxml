@@ -11,7 +11,7 @@
             </view>
             <view class="item">
                 <text class="label"> 担保人手机尾号: </text>
-                <text class="value">{{item.assurePhone}}</text>
+                <text class="value">{{item.maskAssurePhone}}</text>
             </view>
             <view class="item">
                 <text class="label">申请时间:</text>
