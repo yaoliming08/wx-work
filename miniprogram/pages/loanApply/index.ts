@@ -160,11 +160,23 @@ Page({
         })
     },
     getSmsCode: function () {
+
+        console.log(this.data.countNumber,1111)
+        if(this.data.countNumber){
+            return
+        }
+
+        this.setData({
+            countNumber: 60
+        })
+
         sendSmsCode({
             phone: this.data.userInfo.userPhone || '',
             sendType: '1'
         }, {
             success: (result) => {
+
+      
                 this.setCountTime();
                 wx.showToast({ title: '发送成功' })
             }
