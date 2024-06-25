@@ -105,23 +105,29 @@ Page({
         })
     },
     onHandleInfo(event) {
+
         const { key } = event.currentTarget.dataset;
         const { applyAssure, fileUrls } = this.data;
         const { assurePhone, assureIdCard } = applyAssure;
+
+        console.log(this.data.applyAssure,12131)
+
+
+
         const checkNames = ['assureName', 'assureIdCard', 'assurePhone','applyRelationship'];
 
-        if (key !== 'SAVE') {
-            for (let i = 0; i < checkNames.length; i++) {
-                const item = checkNames[i];
-                if (!applyAssure[item]) {
-                    wx.showToast({
-                        title: emptyValues[item] ? emptyValues[item] : '信息不完善',
-                        icon: 'none'
-                    });
-                    return;
-                }
+        for (let i = 0; i < checkNames.length; i++) {
+            const item = checkNames[i];
+
+            console.log(applyAssure[item],32433242)
+            if (!applyAssure[item]) {
+                wx.showToast({
+                    title: emptyValues[item] ? emptyValues[item] : '信息不完善',
+                    icon: 'none'
+                });
+                return;
             }
-        };
+        }
         if(assureIdCard && !/^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[Xx\d]$/.test(assureIdCard)) {
             wx.showToast({
                 title: '请输入正确的身份证',
