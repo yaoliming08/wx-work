@@ -157,10 +157,15 @@ Page({
                         url: "/pages/securityResult/index"
                     })
                 } else {
-                    wx.showToast({
-                        icon: 'none',
-                        title: '保存成功'
-                    });
+
+                    setTimeout(()=>{
+                        wx.showToast({
+                            icon: 'none',
+                            title: '保存成功',
+                            duration:2000,
+                        });
+                    },0)
+  
                 }
             }
         })
