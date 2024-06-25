@@ -10,8 +10,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/loanApply/index",
-          "pathName": "pages/loanApply/index",
+          "name": "pages/qualReview/index",
+          "pathName": "pages/qualReview/index",
           "query": "",
           "launchMode": "default",
           "scene": null

@@ -14,17 +14,19 @@ Page({
         times: 3,
         step: 0,
         applyRelationship: '',
-        applyAssureId: ''
+        applyAssureId: '',
+        smsCode:''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        const { applyAssureId, applyRelationship } = options;
+        const { applyAssureId, applyRelationship ,smsCode} = options;
         this.setData({
             applyAssureId,
-            applyRelationship
+            applyRelationship,
+            smsCode
         });
         
     },
@@ -48,10 +50,11 @@ Page({
         })
     },
     onNext() {
-        const { step, applyAssureId, applyRelationship } = this.data;
+        const { step, applyAssureId, applyRelationship ,smsCode} = this.data;
         if (step + 1 === protocalLinks.length) {
+            
             wx.redirectTo({
-                url: `/pages/qualReview/index?applyAssureId=${applyAssureId  || ''}&applyRelationship=${applyRelationship || ''}&isAgree=1`
+                url: `/pages/qualReview/index?smsCode=${smsCode}&applyAssureId=${applyAssureId  || ''}&applyRelationship=${applyRelationship || ''}&isAgree=1`
             });
             return;
         };

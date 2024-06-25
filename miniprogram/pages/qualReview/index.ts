@@ -40,7 +40,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        const { applyAssureId, isAgree, applyRelationship } = options;
+        const { applyAssureId, isAgree, applyRelationship,smsCode } = options;
+        this.setData({
+            smsCode: smsCode
+        })
         if (isAgree === '1') {
             this.setData({
                 isSelected: true
@@ -89,7 +92,7 @@ Page({
     goProDetail() {
         const { applyAssureId, applyRelationship } = this.data.idCardInfo;
         wx.navigateTo({
-            url: `/pages/qualProtocal/index?applyAssureId=${applyAssureId}&applyRelationship=${applyRelationship}`
+            url: `/pages/qualProtocal/index?applyAssureId=${applyAssureId}&applyRelationship=${applyRelationship}&smsCode=${this.data.smsCode}`
         })
     },
     saveInfo() {
