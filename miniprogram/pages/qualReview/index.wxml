@@ -21,7 +21,8 @@
         <l-list l-list="list" l-right-class="right-list" title="手机号码" right-desc="{{idCardInfo.userPhone || ''}}" />
         <l-list l-list="list" l-right-class="right-list" title="验证码" >
             <view slot="right-section" class="right-area">
-                <input type="text" bind:input="onInput" value="{{smsCode}}" maxlength="6" placeholder="请输入验证码" class="code"/>
+                   <l-input id="iceName" value="{{smsCode}}" bind:lininput="onInput" placeholder="请输入验证码" hide-label show-row="{{false}}" l-input-class="input-right" data-key="smsCode"></l-input>
+                <!-- <input type="text" bind:input="onInput" value="{{smsCode}}" maxlength="6" placeholder="请输入验证码" class="code"/> -->
                 <view class="send-code {{countNumber ? 'disabled' : ''}}" bind:tap="getSmsCode">{{countNumber ? countNumber + 's' : '发送验证码'}}</view>
             </view>
         </l-list>

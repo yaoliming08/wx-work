@@ -3,7 +3,8 @@
       "l-list": "/components/list/index",
       "l-icon": "/components/icon/index",
       "l-checkbox": "/components/checkbox/index",
-      "l-button": "/components/button/index"
+      "l-button": "/components/button/index",
+      "l-input": "/components/input/index"
   },
   "navigationBarTitleText": "担保资格审查"
 }
