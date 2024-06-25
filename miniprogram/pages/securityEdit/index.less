@@ -1,115 +1,125 @@
 /* pages/securityEdit/index.wxss */
 .security-edit-page {
-    .security-content {
-        .title {
-            padding: 40rpx 25rpx 25rpx 25rpx;
-            font-weight: 600;
-            line-height: 30rpx;
-            font-size: 30rpx;
-            color: #333;
-        }
-
-        .list-wrap {
-            padding: 0 22rpx;
-            background: #fff;
-
-            .list {
-                display: flex;
-                align-items: center;
-                font-size: 28rpx;
-                height: 108rpx;
-                color: #666;
-                .label{
-                    margin-right: 30rpx;
-                }
-                .right-area{
-                    flex: 1;
-                   input{
-                       text-align: right;
-                   }
-                   .picker-item{
-                       display: flex;
-                       align-items: center;
-                       justify-content: flex-end;
-                       text-align: right;
-                   }
-                }
-            }
-
-            // .right-list {
-            //     .l-icon {
-            //         display: none;
-            //     }
-
-            //     &.last-list {
-            //         .l-icon {
-            //             display: block !important;
-            //         }
-            //         .noSelect{
-            //             color: #999;
-            //         }
-            //     }
-            // }
-
-            // .right-area {
-            //     display: flex;
-            //     align-items: center;
-            //     height: 108rpx;
-
-            //     input {
-            //         text-align: right;
-            //     }
-            // }
-
-        }
+  .security-content {
+    .title {
+      padding: 40rpx 25rpx 25rpx 25rpx;
+      font-weight: 600;
+      line-height: 30rpx;
+      font-size: 30rpx;
+      color: #333;
     }
 
-    .upload-image {
-        padding: 30rpx 40rpx;
-        background: #fff;
+    .list-wrap {
+      padding: 0 22rpx;
+      background: #fff;
 
-        .tip {
-            margin-top: 35rpx;
-            font-size: 24rpx;
-            color: #999;
-
-            .mark-red {
-                color: #FF6665;
-            }
-        }
-    }
-
-    .submit {
+      .list {
         display: flex;
-        margin: 66rpx 60rpx;
+        align-items: center;
         font-size: 28rpx;
-
-        .secutity-btn {
-            line-height: 70rpx;
-            text-align: center;
-            background: #1F55EC;
-            color: #fff;
-            border-radius: 35rpx;
-            height: 70rpx;
-            flex: 1;
+        height: 108rpx;
+        color: #666;
+        .label {
+          margin-right: 30rpx;
         }
-
-        .btns {
-            width: 100%;
+        .right-area {
+          flex: 1;
+          input {
+            text-align: right;
+          }
+          .picker-item {
             display: flex;
-            justify-content: space-between;
-
-            .save-btn {
-                line-height: 70rpx;
-                text-align: center;
-                flex: 1;
-                margin-right: 30rpx;
-                height: 70rpx;
-                border-radius: 35rpx;
-                border: 1rpx solid #1F55EC;
-                color: #1F55EC;
-            }
+            align-items: center;
+            justify-content: flex-end;
+            text-align: right;
+          }
         }
+      }
 
+      // .right-list {
+      //     .l-icon {
+      //         display: none;
+      //     }
+
+      //     &.last-list {
+      //         .l-icon {
+      //             display: block !important;
+      //         }
+      //         .noSelect{
+      //             color: #999;
+      //         }
+      //     }
+      // }
+
+      // .right-area {
+      //     display: flex;
+      //     align-items: center;
+      //     height: 108rpx;
+
+      //     input {
+      //         text-align: right;
+      //     }
+      // }
     }
+  }
+
+  .upload-image {
+    padding: 30rpx 40rpx;
+    background: #fff;
+
+    .tip {
+      margin-top: 35rpx;
+      font-size: 24rpx;
+      color: #999;
+
+      .mark-red {
+        color: #ff6665;
+      }
+    }
+  }
+
+  .submit {
+    display: flex;
+    margin: 66rpx 60rpx;
+    font-size: 28rpx;
+
+    .secutity-btn {
+      line-height: 70rpx;
+      text-align: center;
+      background: #1f55ec;
+      color: #fff;
+      border-radius: 35rpx;
+      height: 70rpx;
+      flex: 1;
+    }
+
+    .btns {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .save-btn {
+        line-height: 70rpx;
+        text-align: center;
+        flex: 1;
+        margin-right: 30rpx;
+        height: 70rpx;
+        position: relative;
+      }
+
+      .save-btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border: 1px solid #1f55ec;//这里1px可以设置成小于1的
+        border-radius: 80rpx;
+        transform-origin: 0 0;
+        transform: scale(0.5);
+        color: #1f55ec;
+      }
+    }
+  }
 }
