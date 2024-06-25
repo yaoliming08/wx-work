@@ -60,7 +60,7 @@ export const ApplyStatusTexts = {
 
 
 export const ProduceNames = {
-    "PRD001": '市民贷'
+    "PRD001": '科金小贷'
 }
 
 

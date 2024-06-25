@@ -1,7 +1,7 @@
 <!--pages/applySchedule/index.wxml-->
 <view class="schedule-container">
     <view class="schedule-panel">
-        <view class="name">{{productData.productName || '市民贷'}}</view>
+        <view class="name">{{productData.productName || '科金小贷'}}</view>
         <view class="limit-wrap">
             <text>审批额度: </text>
             <text class="money">{{productData.loanAmount || '--'}}</text>

@@ -1,6 +1,6 @@
 <!--pages/loanApply/index.wxml-->
 <view class="loan-apply-container">
-    <l-notice-bar l-class="notice-tip" show="{{true}}" type="roll" speed="1000">本人自愿申请xxxx银行市民贷贷款产品，并已阅读且同意相关风险内容及授权协议，本人承诺本次申请为个人意愿申请，申请中无中介等人员参与。</l-notice-bar>
+    <l-notice-bar l-class="notice-tip" show="{{true}}" type="roll" speed="1000">本人自愿申请xxxx银行科金小贷贷款产品，并已阅读且同意相关风险内容及授权协议，本人承诺本次申请为个人意愿申请，申请中无中介等人员参与。</l-notice-bar>
     <view class="step-container">
         <l-steps active-index="2" color="#1F55EC">
             <l-step title="证件上传"></l-step>

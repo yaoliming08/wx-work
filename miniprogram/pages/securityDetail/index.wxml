@@ -3,7 +3,7 @@
 
 <view class="security-detail">
     <view class="security-list" wx:for="{{assureList}}" wx:key="{{item.id}}">
-        <view class="title">产品名称：市民贷</view>
+        <view class="title">产品名称：科金小贷</view>
         <view class="content">
             <view class="item"> 
                 <text class="label">担保人姓名: </text>
