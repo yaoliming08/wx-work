@@ -188,7 +188,8 @@ Page({
         const index = bankList.findIndex(item => item.deptCode === code);
         this.setData({
             showBankList: index > 2 ? [bankList[index]] : bankList.slice(0, 3),
-            selectBankCode: code === selectBankCode ? '' : code
+            selectBankCode: code === selectBankCode ? '' : code,
+            isShowBank:false
         })
     },
 
