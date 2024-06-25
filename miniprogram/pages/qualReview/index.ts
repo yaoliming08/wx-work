@@ -81,6 +81,9 @@ Page({
         }, 1000)
     },
     getSmsCode() {
+        this.setData({
+            countNumber: 60
+        })
         this.setCountTime();
     },
     onInput(event) {

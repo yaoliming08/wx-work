@@ -16,6 +16,15 @@
             height: 110rpx; 
         }
 
+        .smsCode-box{
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 28rpx;
+            padding-left: 3rpx;
+        }
+
    
         .right-list{
             flex: 1;
@@ -25,7 +34,10 @@
                 width: 100%;
                 display: flex;
                 justify-content: flex-end;
-                z-index: 10;
+                #smsCode{
+                    z-index: 100;
+                    min-height: 40rpx;
+                }
                 .code{
                     flex: 1;
                     text-align: right;
