@@ -49,6 +49,7 @@
                             <text>最高</text>
                             <text class="blue">30万元</text>
                         </view>
+                        <!-- <image class="tag-bg" src="/images/bg/home-tag-bg.png" mode="widthFix" /> -->
                     </view>
                     <view class="item">
                         <text class="item-text">审批快</text>
