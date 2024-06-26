@@ -163,6 +163,18 @@ Page({
                         url: "/pages/securityResult/index"
                     })
                 } else {
+                    console.log(result,'返回数据')
+
+                    if(result.applyAssureId){
+                        this.setData({
+                            [`applyAssure.id`] : result.applyAssureId,
+                            [`applyAssure.applyAssureId`] : result.applyAssureId,
+
+                        })
+                        console.log(this.data.applyAssure,'编辑保存的参数')
+                    }
+
+        
 
                     setTimeout(()=>{
                         wx.showToast({
