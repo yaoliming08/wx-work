@@ -2,7 +2,7 @@
 
 <view class="home-container">
     <l-capsule-bar hidden-capsule title="进件" l-title-class="dgdf" />
-    <l-notice-bar show="{{true}}" l-class="notice" type="still"> 申请某某某银行信贷产品，无需任何中介费</l-notice-bar>
+    <!-- <l-notice-bar show="{{true}}" l-class="notice" type="still"> 申请某某某银行信贷产品，无需任何中介费</l-notice-bar> -->
     <view class="top-area">
         <image src="{{bannerList[0].materialBanner || ''}}" mode="widthFix" />
     </view>
@@ -23,7 +23,7 @@
                 </view>
                 <view class="center-content">
                     <text class="limit-text">{{loanData.loanAmount ? '可借额度（元）' : '最高可借额度（元）'}}</text>
-                    <text class="loan-money">{{loanData.loanAmount || prodList[0].amountMax * 10000}}</text>
+                    <text class="loan-money">{{loanData.loanAmount || prodList[0].amountMax}}</text>
                     <text class="loan-rate" wx:if="{{!loanData.loanRate}}">年利率最低至{{prodList[0].rateMin}}%</text>
                     <text class="loan-rate" wx:if="{{loanData.loanRate}}">年利率：{{loanData.loanRate}}%</text>
                     <l-button l-class="btns" bind:tap="onApply" data-prodobj="{{prodList[0]}}">{{loanData.progressName ? '点击查看进度' : '申请额度'}}</l-button>
