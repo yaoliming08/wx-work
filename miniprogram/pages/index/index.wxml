@@ -83,6 +83,7 @@
         <view class="selected-product" wx:if="{{prodList.length >= 1}}">
             <view class="title">精选产品</view>
             <view class="soon-loan">
+              <image class="icon-tag" src="/images/icon/icon-tag.png" mode="widthFix" />
                 <view class="product-name">
                     <text class="">{{prodList[0].name}}</text>
                     <text class="find-text">了解优{{prodList[0].name}}</text>
