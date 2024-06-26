@@ -111,8 +111,8 @@ Page({
             isShow: false,
         });
         onGetAddressInfo(res => {
-            const { city = '' } = res.result.address_component ?? {};
-            if (city && this.data.limitArea.includes(city)) {
+            const { city = ''  } = res.result.address_component ?? {};
+            if ((city && this.data.limitArea.includes(city) ) || this.data.limitArea.includes('none') ) {
                 beforeApplyAuth({
                     productCode: this.data.currentProd.code
                 }, {
