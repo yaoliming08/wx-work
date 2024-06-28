@@ -131,7 +131,7 @@
             <image class="vig-2" src="/images/approve-item.png" mode="" />
         </view>
         <view class="service-wrap">
-            <text>本服务由xxxx银行提供 </text>
+            <text>本服务由{{serviceName}}提供 </text>
             <text bind:tap="onCallPhone">客服电话: {{servicePhone}}</text>
         </view>
     </view>

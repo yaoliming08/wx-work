@@ -7,4 +7,6 @@ export const StoreKeys = {
   _scene_: `${prefix}Scene`,
   scanSeqNo: `${prefix}ScanSeqNo`,
   servicePhone:`${prefix}ServicePhone`,
+  serviceName:`${prefix}ServiceName`,
+  
 }
