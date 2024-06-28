@@ -23,10 +23,13 @@ Page({
         bannerList: [],
         applyTexts,
         isShow: false,
+        hasAssureTask:false,
         confirmText: 10,
         currentProd:{},
         servicePhone:'',
         serviceName:'',
+        tipTitle:'',
+
     },
     onLoad(options) {
     },
@@ -35,6 +38,16 @@ Page({
         if (wx.getStorageSync(StoreKeys.token)) {
             this.getMarketDetail({materialType: 5})
         }
+    },
+
+
+
+    //跳转待办任务
+    goTask(){
+        console.log('11111111')
+        wx.navigateTo({
+           url: '/moduleA/pages/agencyTask/index'
+        })
     },
 
     getMarketDetail(data) {
@@ -53,7 +66,13 @@ Page({
         getHomeInfo({}, {
             success: (result: any) => {
                 console.log(result,'首页获取信息接口')
-                const { applyInfo, prodList, limitArea,servicePhone ,serviceName} = result;
+                const { applyInfo, prodList, limitArea,servicePhone ,serviceName ,tips = [] ,hasAssureTask} = result;
+                let tipTitle = ''
+                tips.filter(str =>{
+                    tipTitle = tipTitle +'                           ' +   str
+                })
+
+
 
                 wx.setStorageSync(StoreKeys.servicePhone, servicePhone);
                 wx.setStorageSync(StoreKeys.serviceName, serviceName);
@@ -62,7 +81,9 @@ Page({
                     limitArea,
                     prodList,
                     servicePhone,
-                    serviceName
+                    serviceName,
+                    tipTitle,
+                    hasAssureTask
 
                 });
       
