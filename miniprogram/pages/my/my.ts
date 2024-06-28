@@ -12,6 +12,8 @@ Page({
         isLogin: false,
         userInfo: null,
         isShowPopup: false,
+
+        servicePhone:wx.getStorageSync(StoreKeys.servicePhone),
         recordTabs: [
             {
                 icon: '/images/my/icon-apply.png',

@@ -132,7 +132,7 @@
         </view>
         <view class="service-wrap">
             <text>本服务由xxxx银行提供 </text>
-            <text bind:tap="onCallPhone">客服电话: xxxx</text>
+            <text bind:tap="onCallPhone">客服电话: {{servicePhone}}</text>
         </view>
     </view>
     <l-dialog show="{{isShow}}" l-cancel-class="cancel-text" l-confirm-class="{{confirmText > 0 ? 'rrrrr' : 'dddd'}}"  type="confirm" title="银行告知书"  confirm-text="{{CountTime.getTimeText(confirmText)}}" cancel-text="拒绝" bind:linconfirm="onConfirm" bind:lincancel="onCancel">

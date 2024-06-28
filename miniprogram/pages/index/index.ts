@@ -24,7 +24,8 @@ Page({
         applyTexts,
         isShow: false,
         confirmText: 10,
-        currentProd:{}
+        currentProd:{},
+        servicePhone:''
     },
     onLoad(options) {
     },
@@ -51,11 +52,15 @@ Page({
         getHomeInfo({}, {
             success: (result: any) => {
                 console.log(result,'首页获取信息接口')
-                const { applyInfo, prodList, limitArea} = result;
+                const { applyInfo, prodList, limitArea,servicePhone} = result;
+
+                wx.setStorageSync(StoreKeys.servicePhone, servicePhone);
                 this.setData({
                     loanData: applyInfo,
                     limitArea,
-                    prodList
+                    prodList,
+                    servicePhone
+
                 });
       
             }

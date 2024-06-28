@@ -1,4 +1,5 @@
 import { getQuestionDetail, behaviorLog } from "../../services/api";
+import { StoreKeys } from "../../utils/keys";
 Page({
 
     /**
@@ -7,7 +8,9 @@ Page({
     data: {
         id: null,
         clickText: null,
-        question: {}
+        question: {},
+        servicePhone:wx.getStorageSync(StoreKeys.servicePhone),
+        
     },
 
     /**

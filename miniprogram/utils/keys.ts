@@ -6,4 +6,5 @@ export const StoreKeys = {
   isShowLoginAgree: `${prefix}Agree`,
   _scene_: `${prefix}Scene`,
   scanSeqNo: `${prefix}ScanSeqNo`,
+  servicePhone:`${prefix}ServicePhone`,
 }

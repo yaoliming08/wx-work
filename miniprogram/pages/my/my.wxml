@@ -40,7 +40,7 @@
         <text>如有问题，请拨打指定客服电话</text>
         <view class="phone" bind:tap="onCallPhone">
             <image src="/images/my/icon-phone.png" mode=""/>
-            <text>10086</text>
+            <text>{{servicePhone}}</text>
         </view>
     </view>
     <l-popup show="{{isShowPopup}}">
