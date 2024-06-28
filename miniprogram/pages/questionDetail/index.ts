@@ -38,7 +38,7 @@ Page({
     },
     onCallPhone() {
         wx.makePhoneCall({
-            phoneNumber: '10086'
+            phoneNumber: this.data.servicePhone
         })
     },
     handleQuestion(event) {

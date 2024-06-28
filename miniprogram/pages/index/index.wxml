@@ -2,7 +2,7 @@
 
 <view class="home-container">
   <l-capsule-bar hidden-capsule title="进件" l-title-class="dgdf" />
-  <van-notice-bar left-icon="volume-o" scrollable text="{{tipTitle}}" color="#F96B0C" background="#FFFAE9" />
+  <van-notice-bar wx:if="{{tipTitle}}" left-icon="volume-o" scrollable text="{{tipTitle}}" color="#F96B0C" background="#FFFAE9" />
 
 
   <view class="top-area">
@@ -170,7 +170,7 @@
         <text>
           XX银行未跟任何第三方中介及融资机构进行线下合作，未曾授权任何第三方机构向客户授权任何形式的费用。</text
         >
-        <text>以上内容我行有权依法进行解释，详询0757-34545</text>
+        <text>以上内容我行有权依法进行解释，详询{{servicePhone}}</text>
       </view>
     </view>
   </l-dialog>

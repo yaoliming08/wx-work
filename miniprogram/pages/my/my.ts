@@ -112,7 +112,7 @@ Page({
     },
     onCallPhone() {
         wx.makePhoneCall({
-            phoneNumber: '10086'
+            phoneNumber: this.data.servicePhone
         })
     },
     onClickTab: function (e: WechatMiniprogram.BaseEvent) {
