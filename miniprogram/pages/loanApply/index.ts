@@ -63,12 +63,17 @@ Page({
                 applyData: getApp().globalData.applyAssure
             });
             getApp().globalData.applyAssure = null;
+        }else{
+
+            this.setData({
+                ['applyData.productCode']:productCode 
+            })
+            
         }
         const _scene_ = wx.getStorageSync(StoreKeys._scene_);
         this.setData({
             areaCode,
             productCode,
-            ['applyData.productCode']:productCode
         })
         this.queryUserInfo();
         this.getProductDetail();
