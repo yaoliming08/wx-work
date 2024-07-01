@@ -30,7 +30,7 @@
           <text class="title">
             所属机构
           </text>
-          <text class="">
+          <text class="value">
             {{custData.orgName}}
           </text>
         </view>
@@ -39,7 +39,7 @@
           <text class="title">
             银行地址
           </text>
-          <text class="">
+          <text class="value">
             {{custData.bankAddress}}
           </text>
         </view>
