@@ -1,21 +1,49 @@
 <!--pages/serveManager/serveManager.wxml-->
 <view class="serve-manager-container">
-    <navigation-bar title="我的客户经理" color="#fff" background="#0c73fb" back="{{false}}">
-        <view slot="left" class="left-icon" bind:tap="onBack">
-            <l-icon l-class='iconfont' name="left" size="32" color="#fff" />
-        </view>
-    </navigation-bar>
-    <view class="serve-bg">
-        <view class="manager-info-area">
-            <view class="base-info">
-                <l-avatar l-class="avatar-bg" size="120" icon-color="#fff" shape="circle" src="/images/avatar.png" />
-                <text class="name">{{custData.managerName || '--'}}</text>
-            </view>
-            <view class="info-lists">
-                <l-list title="联系电话" right-desc="{{custData.managerPhone}}" />
-                <l-list title="所属机构" right-desc="{{custData.orgName}}" />
-                <l-list title="银行地址" l-class="last-class" right-desc="{{custData.bankAddress}}" />
-            </view>
-        </view>
+  <navigation-bar title="我的客户经理" color="#fff" background="#0c73fb" back="{{false}}">
+    <view slot="left" class="left-icon" bind:tap="onBack">
+      <l-icon l-class="iconfont" name="left" size="32" color="#fff" />
     </view>
+  </navigation-bar>
+  <view class="serve-bg">
+    <view class="manager-info-area">
+      <view class="base-info">
+        <l-avatar
+          l-class="avatar-bg"
+          size="120"
+          icon-color="#fff"
+          shape="circle"
+          src="/images/avatar.png"
+        />
+        <text class="name">{{custData.managerName || '--'}}</text>
+      </view>
+      <view class="info-lists">
+        <view class="line-info">
+          <text class="title">
+            联系电话
+          </text>
+          <text class="phone" bind:tap="onCallPhone">
+            {{ custData.managerPhone}}
+          </text>
+        </view>
+        <view class="line-info">
+          <text class="title">
+            所属机构
+          </text>
+          <text class="">
+            {{custData.orgName}}
+          </text>
+        </view>
+
+        <view class="line-info">
+          <text class="title">
+            银行地址
+          </text>
+          <text class="">
+            {{custData.bankAddress}}
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
