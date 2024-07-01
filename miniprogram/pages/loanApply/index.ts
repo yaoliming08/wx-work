@@ -125,7 +125,7 @@ Page({
     },
 
     getProductDetail() {
-        getProductDetail({ productCode:this.data.productCode}, {
+        getProductDetail({ productCode:this.data.applyData.productCode}, {
             success: (res: any) => {
                 console.log(res);
                 const {  amountMaxDi10000 = 0, amountMinDi10000 = 0 } = res;
