@@ -61,6 +61,11 @@ export const getUserInfo = (data: any, options: RequestOption = {}) => {
     return postRequest(`apminipg/wxminipg/queryUserInfo`, data, options);
 }
 
+// 获取我的客户经理
+export const searchCustManager = (data: any, options: RequestOption = {}) => {
+    return postRequest(`apminipg/wxminipg/searchCustManager`, data, options);
+}
+
 // 宣传图
 export const getMarketDetail = (data: any, options: RequestOption = {}) => {
     return postRequest(`apminipg/marketMaterial/getDsegMarketMateriallist`, data, {IG_TOKEN: true, ...options})

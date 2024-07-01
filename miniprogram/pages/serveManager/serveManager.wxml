@@ -9,12 +9,12 @@
         <view class="manager-info-area">
             <view class="base-info">
                 <l-avatar l-class="avatar-bg" size="120" icon-color="#fff" shape="circle" src="/images/avatar.png" />
-                <text class="name">张经理</text>
+                <text class="name">{{custData.managerName || '--'}}</text>
             </view>
             <view class="info-lists">
-                <l-list title="联系电话" right-desc="18654752136" />
-                <l-list title="所属机构" right-desc="xxx支行" />
-                <l-list title="银行地址" l-class="last-class" right-desc="佛山市南海区桂城街道南五路22号" />
+                <l-list title="联系电话" right-desc="{{custData.managerPhone}}" />
+                <l-list title="所属机构" right-desc="{{custData.orgName}}" />
+                <l-list title="银行地址" l-class="last-class" right-desc="{{custData.bankAddress}}" />
             </view>
         </view>
     </view>

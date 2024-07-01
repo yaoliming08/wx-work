@@ -1,10 +1,29 @@
 // pages/serveManager/serveManager.ts
+
+import { searchCustManager } from "../../services/api";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    custData:{}
+
+  },
+
+
+
+  searchCustManager(){
+
+    searchCustManager({}, {
+      success: (result) => {
+
+        this.setData({
+            custData:result
+        })
+        console.log('获取客户经理信息',result)
+      }
+  })
 
   },
 
@@ -12,6 +31,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+
+    this.searchCustManager()
 
   },
 
