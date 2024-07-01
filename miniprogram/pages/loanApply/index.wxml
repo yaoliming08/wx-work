@@ -58,7 +58,7 @@
             <view class="list">
                 <text class="label">验证码</text>
                 <view class="right-area">
-                    <l-input class="" type="number" value="{{applyData.smsCode}}" data-key="smsCode" maxlength="6" type="text" hide-label show-row="{{false}}" bind:lininput="onInput" />
+                    <l-input placeholder="请输入验证码" class="" type="number" value="{{applyData.smsCode}}" data-key="smsCode" maxlength="6" type="text" hide-label show-row="{{false}}" bind:lininput="onInput" />
                     <view class="send-code {{countNumber ? 'disabled' : ''}}" bind:tap="getSmsCode">{{countNumber ? countNumber + 's' : '发送验证码'}}</view>
                 </view>
             </view>
