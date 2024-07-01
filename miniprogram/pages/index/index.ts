@@ -148,13 +148,15 @@ Page({
                     success: (result: any) => {
                         const { authToken = null, authType, authUrl = null } = result;
                         const { areaCode } = this.data.currentProd;
+
+                        console.log(this.data.currentProd,'当前产品')
                         if (authType !== '0') {
                             wx.navigateTo({
                                 url: `/pages/transfer/index?authToken=${authToken}&areaCode=${areaCode || ''}`
                             })
                         } else {
                             wx.navigateTo({
-                                url: `/pages/loanApply/index?areaCode=${areaCode}`
+                                url: `/pages/loanApply/index?areaCode=${areaCode}&productCode=${this.data.currentProd.code}`
                             })
                         }
                     }

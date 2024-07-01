@@ -185,7 +185,7 @@ export const signOff = (data: any, options: RequestOption = {}) => {
 }
 
 export const getProductDetail = (data: any, options: RequestOption = {}) => {
-    return postRequest(`/apminipg/Product/getDsegProductList`, data, options)
+    return postRequest(`/apminipg/product/getDsegProductDetail`, data, options)
 }
 
 

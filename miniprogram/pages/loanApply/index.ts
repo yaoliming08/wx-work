@@ -28,11 +28,12 @@ Page({
             lng: '',
             lat: '',
             referenceType: '',
-            productCode: 'test001',
+            productCode: '',
         },
         amountMin: 0,
         amountMax: 0,
         isShowBank: false,
+        productCode:'',
         selectBankCode: null,
         bankList: [],
         showBankList: [],
@@ -53,17 +54,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        const { areaCode, isAgree } = options;
+        const { areaCode, isAgree ,productCode} = options;
+        console.log(options,'初始化页面参数')
         if (isAgree === '1') {
             this.setData({
                 isToggleCheck: true,
+                productCode,
                 applyData: getApp().globalData.applyAssure
             });
             getApp().globalData.applyAssure = null;
         }
         const _scene_ = wx.getStorageSync(StoreKeys._scene_);
         this.setData({
-            areaCode
+            areaCode,
+            productCode,
+            ['applyData.productCode']:productCode
         })
         this.queryUserInfo();
         this.getProductDetail();
@@ -120,13 +125,13 @@ Page({
     },
 
     getProductDetail() {
-        getProductDetail({}, {
+        getProductDetail({ productCode:this.data.productCode}, {
             success: (res: any) => {
                 console.log(res);
-                const {  amountMin = 0, amountMax = 0 } = res.records[0];
+                const {  amountMaxDi10000 = 0, amountMinDi10000 = 0 } = res;
                 this.setData({
-                    amountMin,
-                    amountMax
+                    amountMin:amountMinDi10000,
+                    amountMax:amountMaxDi10000
                 })
             }
         })
