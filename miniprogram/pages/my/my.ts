@@ -62,7 +62,8 @@ Page({
             {
                 text: '待办任务',
                 icon: "/images/my/icon-list-8.png",
-                path: "/moduleA/pages/agencyTask/index"
+                path: "/moduleA/pages/agencyTask/index",
+                isNeedAuth: true
             },
             {
                 text: '隐私管理',
