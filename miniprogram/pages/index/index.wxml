@@ -102,11 +102,10 @@
     <view class="selected-product" wx:if="{{selectedProdList.length >= 1}}">
       <view class="title">精选产品</view>
       <view class="soon-loan" wx:for="{{selectedProdList}}">
-        <image class="icon-tag" src="/images/icon/icon-tag.png" mode="widthFix" />
+        <image wx:if="{{index == 0}}" class="icon-tag" src="/images/icon/icon-tag.png" mode="widthFix" />
         <view class="product-name">
           <text class="">{{item.name}}</text>
           <text class="find-text">了解优{{item.name}}</text>
-          <image src="" mode="" />
         </view>
         <view class="limit-money">
           <text class="limit-text">最高可借额度（元）</text>
