@@ -34,7 +34,10 @@ const handlerComplete = (err: WechatMiniprogram.GeneralCallbackResult, completeC
 }
 
 const handlerFail = (err: WechatMiniprogram.RequestFailCallbackErr, failCallback: WechatMiniprogram.RequestFailCallback | undefined) => {
-    showRequestError(err.errMsg);
+    if(err.errMsg){
+        showRequestError(err.errMsg);
+    }
+    
     failCallback?.(err);
 }
 
