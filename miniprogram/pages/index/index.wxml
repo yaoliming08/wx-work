@@ -175,7 +175,16 @@
       </view>
     </view>
   </l-dialog>
+      <l-popup show="{{isShowPopup}}">
+        <view class="popup-u" style="z-index:20;">
+            <text class="title">尊敬的客户</text>
+            <text class="text">您还未完成实名认证哦~</text>
+            <l-button l-class="btn" bind:tap="onRealName">去实名</l-button>
+        </view>
+    </l-popup>
 </view>
+
+
 
 <wxs module="CountTime">
   var getTimeText = function(count){ return count > 0 ? "我已知悉并同意（"+ count +"s）" : '同意' ;

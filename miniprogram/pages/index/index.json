@@ -4,7 +4,8 @@
     "l-capsule-bar": "/components/capsule-bar",
     "navigation-bar": "/components/navigation-bar/navigation-bar",
     "l-button": "/components/button/index",
-    "l-dialog": "/components/dialog/index"
+    "l-dialog": "/components/dialog/index",
+    "l-popup": "/components/popup/index"
   },
   "navigationStyle": "custom"
 }
