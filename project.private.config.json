@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/applyRecordList/index",
+          "pathName": "pages/applyRecordList/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "/moduleA/pages/giftVoucher/index",
           "pathName": "/moduleA/pages/giftVoucher/index",
           "query": "",
