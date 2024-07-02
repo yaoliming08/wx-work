@@ -10,14 +10,12 @@
   </view>
   <view class="content-container">
 
-      <view class="tip-area" wx:if="{{!hasAssureTask}}">
+      <view class="tip-area" wx:if="{{hasAssureTask}}">
     <view class="tip-area-box">
        <image class="icon-horn" src="/images/icon/icon-horn.png" mode="" />
        <text class="text">滴滴!您有一个担保待办任务!</text>
     </view>
       <view class="tip-area-btn" bind:tap="goTask">点击查看</view>
-
-
     </view>
 
     <view class="hot-loan-product" wx:if="{{prodList.length}}">
@@ -152,7 +150,7 @@
     </view>
     <view class="service-wrap">
       <text>本服务由{{serviceName}}提供 </text>
-      <text bind:tap="onCallPhone">客服电话: {{servicePhone}}</text>
+      <view bind:tap="onCallPhone">客服电话: <text style="color:red;" >{{servicePhone}}</text></view>
     </view>
   </view>
   <l-dialog
