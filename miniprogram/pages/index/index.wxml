@@ -10,6 +10,16 @@
   </view>
   <view class="content-container">
 
+      <view class="tip-area" wx:if="{{!hasAssureTask}}">
+    <view class="tip-area-box">
+       <image class="icon-horn" src="/images/icon/icon-horn.png" mode="" />
+       <text class="text">滴滴!您有一个担保待办任务!</text>
+    </view>
+      <view class="tip-area-btn" bind:tap="goTask">点击查看</view>
+
+
+    </view>
+
     <view class="hot-loan-product" wx:if="{{prodList.length}}">
       <view class="title">热门贷款产品</view>
       <view class="hot-loan-content">
@@ -90,15 +100,7 @@
         </view>
       </view>
     </view>
-    <view class="tip-area" wx:if="{{hasAssureTask}}">
-    <view class="tip-area-box">
-       <image class="icon-horn" src="/images/icon/icon-horn.png" mode="" />
-       <text class="text">滴滴!您有一个担保待办任务!</text>
-    </view>
-      <view class="tip-area-btn" bind:tap="goTask">点击查看</view>
 
-
-    </view>
     <view class="selected-product" wx:if="{{selectedProdList.length >= 1}}">
       <view class="title">精选产品</view>
       <view class="soon-loan" wx:for="{{selectedProdList}}">
