@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "l-icon": "/components/icon/index"
+        "l-icon": "/components/icon/index",
+        "l-empty": "/components/empty"
     },
     "navigationBarTitleText": "申请记录"
 }

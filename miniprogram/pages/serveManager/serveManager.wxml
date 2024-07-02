@@ -23,7 +23,7 @@
             联系电话
           </text>
           <text class="phone" bind:tap="onCallPhone">
-            {{ custData.managerPhone}}
+            {{ custData.managerPhone || '--'}}
           </text>
         </view>
         <view class="line-info">
@@ -31,7 +31,7 @@
             所属机构
           </text>
           <text class="value">
-            {{custData.orgName}}
+            {{custData.orgName || '--'}}
           </text>
         </view>
 
@@ -40,7 +40,7 @@
             银行地址
           </text>
           <text class="value">
-            {{custData.bankAddress}}
+            {{custData.bankAddress || '--'}}
           </text>
         </view>
       </view>

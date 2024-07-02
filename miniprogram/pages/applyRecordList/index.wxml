@@ -1,7 +1,7 @@
 <!--pages/applyRecordList/index.wxml-->
 <wxs src="../../utils/common.wxs" module="StatusModule"></wxs>
-<view class="apply-record-list">
-    <view class="record-list" wx:for="{{applyList}}" wx:key="{{item.applyId}}" bind:tap="goApplyDetail" data-index="{{index}}">
+<view class="apply-record-list" wx:if="{{applyList.length}}">
+    <view class="record-list"  wx:for="{{applyList}}" wx:key="{{item.applyId}}" bind:tap="goApplyDetail" data-index="{{index}}">
         <view class="top-area">
             <text class="title">{{item.productName || '--'}}</text>
             <l-icon name="right" color="#BBBBBB" size="25" l-class="arrow"/>
@@ -30,4 +30,9 @@
             <view class="btn" wx:if="{{item.assureStatus !== 6}}" catch:tap="goSecurityDetail" data-id="{{item.applyId}}">查看担保详情</view>
         </view>
     </view>
+
+      
+</view>
+<view class="no-data-box" wx:else>
+     <l-empty class="empty-page"  />
 </view>
