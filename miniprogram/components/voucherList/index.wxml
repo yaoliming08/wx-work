@@ -12,7 +12,8 @@
             <text class="time">2023.06.01-2023.12.31</text>
             
         </view>
-        <image wx:if="{{!isCanUse}}" class="used-voucher" src="../../images/voucher@used.png" mode=""/>
+        <image wx:if="{{useStats == '1'}}" class="used-voucher" src="../../images/voucher@used.png" mode=""/>
+        <image wx:if="{{useStats == '2'}}" class="used-voucher" src="../../images/voucher@used2.png" mode=""/>
         <l-icon name="right" size="20" />
     </view>
 </view>

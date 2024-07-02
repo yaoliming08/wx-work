@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "/moduleA/pages/giftVoucher/index",
+          "pathName": "/moduleA/pages/giftVoucher/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/securityEdit/index",
           "pathName": "pages/securityEdit/index",
           "query": "",

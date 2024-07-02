@@ -24,7 +24,7 @@
           <text class="limit-text"
             >{{loanData.loanAmount ? '可借额度（元）' : '最高可借额度（元）'}}</text
           >
-          <text class="loan-money">{{loanData.loanAmount || prodList[0].amountMax}}</text>
+          <text class="loan-money">{{loanData.loanAmountFormat || prodList[0].amountMaxFormat}}</text>
           <text class="loan-rate" wx:if="{{!loanData.loanRate}}"
             >年利率最低至{{prodList[0].rateMin}}%</text
           >
@@ -111,7 +111,7 @@
         <view class="limit-money">
           <text class="limit-text">最高可借额度（元）</text>
           <view class="apply-money">
-            <text class="money">{{item.amountMax }}</text>
+            <text class="money">{{item.amountMaxFormat }}</text>
             <l-button l-class="register">注册申请</l-button>
           </view>
         </view>
