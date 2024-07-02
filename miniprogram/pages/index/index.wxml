@@ -1,7 +1,7 @@
 <wxs src="../../utils/common.wxs" module="StatusModule"></wxs>
 
 <view class="home-container">
-  <l-capsule-bar hidden-capsule title="进件" l-title-class="dgdf" />
+  <l-capsule-bar hidden-capsule title="首页" l-title-class="dgdf" />
   <van-notice-bar wx:if="{{tipTitle}}" left-icon="volume-o" scrollable text="{{tipTitle}}" color="#F96B0C" background="#FFFAE9" />
 
 
