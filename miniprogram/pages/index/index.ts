@@ -66,7 +66,7 @@ Page({
         getHomeInfo({}, {
             success: (result: any) => {
                 console.log(result,'首页获取信息接口')
-                const { applyInfo, prodList, limitArea,servicePhone ,serviceName ,tips = [] ,hasAssureTask} = result;
+                const { applyInfo, prodList,selectedProdList, limitArea,servicePhone ,serviceName ,tips = [] ,hasAssureTask} = result;
                 let tipTitle = ''
                 tips.filter(str =>{
                     tipTitle = tipTitle +'                           ' +   str
@@ -83,7 +83,8 @@ Page({
                     servicePhone,
                     serviceName,
                     tipTitle,
-                    hasAssureTask
+                    hasAssureTask,
+                    selectedProdList
 
                 });
       
