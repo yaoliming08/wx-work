@@ -48,6 +48,10 @@ Page({
             this.jumpPath(token);
        
   
+        },
+        fail:() =>{
+            console.log('二维码已过期')
+            wx.exitMiniProgram();
         }
     })
 

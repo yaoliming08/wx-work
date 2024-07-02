@@ -13,7 +13,7 @@
             </view>
             <view class="content" wx:if="{{isLogin}}">
                 <text class="name">{{userInfo.nameHide ? userInfo.nameHide : userInfo.userNickName || '--'}}</text>
-                <text>手机号：{{userInfo.userPhone || "--"}}</text>
+                <text>手机号：{{userInfo.userPhoneHide || userInfo.userPhone || "--"}}</text>
             </view>
         </view>
         <view class="set-icon" catch:tap="goDetail">

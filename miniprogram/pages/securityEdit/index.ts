@@ -67,6 +67,27 @@ Page({
     onChangeInput(event) {
         const { key } = event.currentTarget.dataset;
         const { value } = event.detail;
+        let noPass =  false
+
+        console.log(/^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[Xx\d]$/.test(value),'是否符合身份证格式')
+
+        if(['assureIdCard','assurePhone'].includes(key) ){
+            if(value && ((key == 'assureIdCard' && value.length > 18) ||  (key == 'assurePhone' && value.length > 11)) ){
+                noPass = true
+            }
+        }
+
+        if(noPass){
+            this.setData({
+                applyAssure: {
+                    ...this.data.applyAssure,
+                    [key]: this.data.applyAssure[key],
+                }
+            })
+            return
+        }
+
+
         this.setData({
             applyAssure: {
                 ...this.data.applyAssure,

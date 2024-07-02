@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/securityEdit/index",
+          "pathName": "pages/securityEdit/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/qualReview/index",
           "pathName": "pages/qualReview/index",
           "query": "",

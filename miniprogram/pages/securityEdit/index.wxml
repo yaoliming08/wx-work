@@ -12,13 +12,13 @@
             <view class="list">
                 <view class="label">身份证号码</view>
                 <view class="right-area">
-                    <input type="text" disabled="{{!isEditStatus}}" data-key="assureIdCard" bindinput="onChangeInput" value="{{applyAssure.assureIdCard}}" placeholder="请输入" class="l-input" />
+                    <input type="idcard" disabled="{{!isEditStatus}}" data-key="assureIdCard" bindinput="onChangeInput" value="{{applyAssure.assureIdCard}}" placeholder="请输入" class="l-input" />
                 </view>
             </view>
             <view class="list">
                 <view class="label">担保人手机号</view>
                 <view class="right-area">
-                    <input type="text" disabled="{{!isEditStatus}}" data-key="assurePhone" bindinput="onChangeInput" value="{{applyAssure.assurePhone}}" placeholder="请输入" class="l-input" />
+                    <input type="number" disabled="{{!isEditStatus}}" data-key="assurePhone" bindinput="onChangeInput" value="{{applyAssure.assurePhone}}" placeholder="请输入" class="l-input" />
                 </view>
             </view>
             <view class="list">
