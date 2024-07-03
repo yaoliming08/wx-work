@@ -25,9 +25,9 @@
                 <image wx:if="{{item.referencePhone || item.custManagerPhone}}" data-phone="{{item.custManagerPhone || item.referencePhone || ''}}" catch:tap="onCallPhone" class="phone" src="/images/icon/icon-green-phone.png" mode=""/>
             </view>
         </view>
-        <view class="btn-lists" wx:if="{{item.isAssureStage === 1 && item.applyStatus !== 37}}">
-            <view class="btn {{ item.assureStatus === 3 ? 'disabled' : ''}}" wx:if="{{item.assureStatus !== 6}}" catch:tap="addSecurity" data-index="{{index}}" >{{ !item.applyAssureId || item.assureStatus == 4 || item.assureStatus == 5 ? '发起担保' : '担保编辑'}}</view>
-            <view class="btn" wx:if="{{item.assureStatus !== 6}}" catch:tap="goSecurityDetail" data-id="{{item.applyId}}">查看担保详情</view>
+        <view class="btn-lists" >
+            <view class="btn {{ item.assureStatus === 3 ? 'disabled' : ''}}" wx:if="{{ item.isAssureStage === 1  && item.assureStatus !== 6 && item.applyStatus !== 37}}" catch:tap="addSecurity" data-index="{{index}}" >{{ !item.applyAssureId || item.assureStatus == 4 || item.assureStatus == 5 ? '发起担保' : '担保编辑'}}</view>
+            <view class="btn"  catch:tap="goSecurityDetail" data-id="{{item.applyId}}">查看担保详情</view>
         </view>
     </view>
 
