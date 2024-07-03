@@ -64,7 +64,7 @@
             <text class="item-text">额度高</text>
             <view class="item-rows">
               <text>最高</text>
-              <text class="blue">30万元</text>
+              <text class="blue">{{prodList[0].amountMaxDi10000 }}万元</text>
             </view>
             <!-- <image class="tag-bg" src="/images/bg/home-tag-bg.png" mode="widthFix" /> -->
           </view>
