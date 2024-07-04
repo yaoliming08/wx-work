@@ -37,7 +37,7 @@
             >年利率最低至{{prodList[0].rateMin}}%</text
           >
           <text class="loan-rate" wx:if="{{loanData.loanRate}}"
-            >年利率：{{loanData.loanRate}}%</text
+            >年利率（单利）（%）：{{loanData.loanRate}}%</text
           >
           <l-button l-class="btns" bind:tap="onApply" data-prodobj="{{prodList[0]}}"
             >{{loanData.progressName ? '点击查看进度' : '申请额度'}}</l-button
